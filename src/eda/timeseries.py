@@ -29,7 +29,7 @@ def adf_test(series: pd.Series) -> dict:
     s = series.dropna()
     if len(s) < 50:
         return {"n": len(s), "skipped": True}
-    stat, pval, lags, n, crit, _ = adfuller(s, autolag="AIC")
+    stat, pval, lags, n, crit, _ = adfuller(s, maxlag=48)
     return {
         "n": int(n),
         "lags": int(lags),
