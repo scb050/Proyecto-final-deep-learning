@@ -39,12 +39,6 @@ stations:
     region: Norte
     biome: Amazonia
     koppen_class: Am
-  - code: A242
-    name: BOA VISTA
-    uf: RR
-    region: Norte
-    biome: Amazonia
-    koppen_class: Aw
   - code: A102
     name: RIO BRANCO
     uf: AC
@@ -101,12 +95,6 @@ stations:
     region: Nordeste
     biome: Caatinga
     koppen_class: Aw
-  - code: A347
-    name: NATAL
-    uf: RN
-    region: Nordeste
-    biome: Mata Atlantica
-    koppen_class: As
   - code: A320
     name: MACEIO
     uf: AL

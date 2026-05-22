@@ -20,8 +20,8 @@ regions:
     states: [AM, PA, RO, RR, AC, AP, TO]
     dominant_biomes: [Amazonia, Cerrado]
     koppen_classes: [Af, Am, Aw]
-    station_codes: [A101, A201, A104, A135, A242, A102, A210, A018]
-    n_stations: 8
+    station_codes: [A101, A201, A104, A135, A102, A210, A018]
+    n_stations: 7
     color: "#2E7D32"   # verde Amazonia
 
   Nordeste:
@@ -30,8 +30,8 @@ regions:
     states: [BA, PE, CE, PI, RN, AL, MA]
     dominant_biomes: [Mata Atlantica, Cerrado, Caatinga]
     koppen_classes: [Af, Aw, As, BSh]
-    station_codes: [A301, A305, A309, A328, A340, A312, A347, A320, A325]
-    n_stations: 9
+    station_codes: [A301, A305, A309, A328, A340, A312, A320, A325]
+    n_stations: 8
     color: "#F57C00"   # naranja semiarido
 
   Centro-Oeste:

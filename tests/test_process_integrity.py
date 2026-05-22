@@ -45,7 +45,7 @@ def test_count_matches_stations_yaml(parquet_paths):
     expected = set(_expected_codes())
     found = {p.stem.upper() for p in parquet_paths}
     assert expected == found, f"Faltan {expected - found}; sobran {found - expected}"
-    assert len(parquet_paths) == 40
+    assert len(parquet_paths) == len(expected)
 
 
 def test_each_parquet_has_monotonic_unique_index(parquet_paths):

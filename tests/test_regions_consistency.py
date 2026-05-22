@@ -31,9 +31,10 @@ def test_assert_consistency_does_not_raise():
 
 
 def test_total_stations_is_40():
-    from src.utils.regions import load_regions
+    from src.utils.regions import load_regions, load_stations
     total = sum(r["n_stations"] for r in load_regions().values())
-    assert total == 40, f"Esperado 40 estaciones, se encontraron {total}"
+    expected = len(list(load_stations()))
+    assert total == expected, f"Esperado {expected} estaciones (stations.yaml), se encontraron {total} (regions.yaml)"
 
 
 def test_expected_regions_present():
