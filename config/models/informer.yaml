@@ -7,6 +7,7 @@ model:
   variant: informer
 
 architecture:
+  variant: informer          # selecciona ProbSparse encoder en TransformerForecaster
   d_model: 128
   nhead: 8
   num_encoder_layers: 3
