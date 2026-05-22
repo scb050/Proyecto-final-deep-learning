@@ -79,7 +79,7 @@ task:
     - wind_speed_ms
   freq: "h"                # frecuencia horaria
   lookback: 168            # 7 días * 24 h
-  horizon: 24              # 24 h de pronóstico (multistep)
+  horizon: 168             # 168 h de pronóstico (multistep)
 
 # ---------------------------------------------------------------------
 # Splits temporales (sin leakage). Tres modos:
@@ -165,7 +165,7 @@ stats:
 # Para resultados oficiales, poner enabled: false (o eliminar el bloque entero).
 # =============================================================================
 sampling:
-  enabled: true                # Toggle único. false = pipeline completo.
+  enabled: false               # Toggle único. false = pipeline completo.
   n_stations_per_region: 1     # 1 estación por región × 5 regiones = 5 estaciones (vs 40)
   train_years: [2022, 2023]    # Solo 2 años de train (vs 6). val 2024 y test 2025 se mantienen.
   max_epochs_override: 5       # Cap a 5 épocas por run (vs lo que diga el yaml de cada modelo)
