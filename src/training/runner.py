@@ -104,15 +104,29 @@ def run_one(
     lookback = cfg["task"]["lookback"]
     horizon = cfg["task"]["horizon"]
 
-    w_tr = make_windows(df_tr, feature_cols, targets, lookback, horizon)
-    w_va = make_windows(df_va, feature_cols, targets, lookback, horizon)
-    w_te = make_windows(df_te, feature_cols, targets, lookback, horizon)
+    # Escalado: fit SOLO con datos raw de train (evita materializar
+    # (N_windows × lookback, F) en float64 → OOM con dataset completo en CPU).
+    # Las estadísticas son equivalentes a fitear sobre windows (misma distribución).
+    fx = FeatureScaler(name=cfg["scaling"]["method"]).fit(
+        df_tr[feature_cols].to_numpy(dtype=np.float32), source="train"
+    )
+    fy = FeatureScaler(name=cfg["scaling"]["method"]).fit(
+        df_tr[targets].to_numpy(dtype=np.float32), source="train"
+    )
 
-    # Escalado: fit SOLO con train.
-    fx = FeatureScaler(name=cfg["scaling"]["method"]).fit(w_tr.X, source="train")
-    fy = FeatureScaler(name=cfg["scaling"]["method"]).fit(w_tr.y, source="train")
-    Xtr, Xva, Xte = fx.transform(w_tr.X), fx.transform(w_va.X), fx.transform(w_te.X)
-    Ytr, Yva, Yte = fy.transform(w_tr.y), fy.transform(w_va.y), fy.transform(w_te.y)
+    def _prescale(df):
+        out = df.copy()
+        out[feature_cols] = fx.transform(df[feature_cols].to_numpy(dtype=np.float32))
+        out[targets]      = fy.transform(df[targets].to_numpy(dtype=np.float32))
+        return out
+
+    w_tr = make_windows(_prescale(df_tr), feature_cols, targets, lookback, horizon)
+    w_va = make_windows(_prescale(df_va), feature_cols, targets, lookback, horizon)
+    w_te = make_windows(_prescale(df_te), feature_cols, targets, lookback, horizon)
+
+    Xtr, Ytr = w_tr.X, w_tr.y
+    Xva, Yva = w_va.X, w_va.y
+    Xte, Yte = w_te.X, w_te.y
 
     # Modelo
     cls = _load_model_class(model_cfg["model"]["class"])
@@ -220,9 +234,14 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default="config/config.yaml")
     parser.add_argument("--model", required=True)
-    parser.add_argument("--seeds", type=int, default=5)
+    parser.add_argument("--seeds", type=int, default=None)
     args = parser.parse_args()
-    run(args.config, args.model, args.seeds)
+    if args.seeds is None:
+        _cfg = load_yaml(args.config)
+        seeds = int(_cfg["project"]["seeds_per_model"])
+    else:
+        seeds = args.seeds
+    run(args.config, args.model, seeds)
 
 
 if __name__ == "__main__":

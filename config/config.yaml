@@ -4,7 +4,7 @@
 project:
   name: proyecto-final-deep
   seed: 42                 # semilla global por defecto
-  seeds_per_model: 5       # # de runs por modelo para media±std
+  seeds_per_model: 2       # # de runs por modelo para media±std
   device: auto             # auto | cpu | cuda
   log_level: INFO
 
@@ -126,7 +126,7 @@ scaling:
 # ---------------------------------------------------------------------
 training:
   batch_size: 64
-  epochs: 50
+  epochs: 25
   lr: 1.0e-3
   optimizer: adam
   weight_decay: 1.0e-5

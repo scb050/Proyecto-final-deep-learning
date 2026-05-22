@@ -19,7 +19,7 @@ architecture:
 
 training:
   batch_size: 64
-  epochs: 50
+  epochs: 25
   lr: 1.0e-4
   optimizer: adamw
   weight_decay: 1.0e-4

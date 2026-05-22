@@ -13,7 +13,7 @@ PYTHON ?= python
 PIP    ?= pip
 CONFIG ?= config/config.yaml
 MODEL  ?= lstm
-SEEDS  ?= 5
+SEEDS  ?= 2
 
 .PHONY: help setup ingest process eda train benchmark book test lint format clean all
 
