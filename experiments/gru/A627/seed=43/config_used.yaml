@@ -1,0 +1,16 @@
+model:
+  name: gru
+  class: src.models.model_gru.GRUForecaster
+architecture:
+  hidden_size: 128
+  num_layers: 2
+  dropout: 0.2
+  bidirectional: false
+training:
+  batch_size: 64
+  epochs: 25
+  lr: 0.001
+  optimizer: adam
+  weight_decay: 1.0e-05
+  early_stopping_patience: 8
+  grad_clip: 1.0

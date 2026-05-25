@@ -25,37 +25,14 @@ data/processed/*
 !data/processed/.gitkeep
 
 # --- Experimentos / artefactos ---
-experiments/*
-!experiments/.gitkeep
-!experiments/persistence/
-!experiments/gru/
-!experiments/lstm/
-!experiments/tcn/
-!experiments/nbeats/
-!experiments/transformer/
-!experiments/tft/
-!experiments/informer/
-experiments/persistence/*
-!experiments/persistence/.gitkeep
-experiments/gru/*
-!experiments/gru/.gitkeep
-experiments/lstm/*
-!experiments/lstm/.gitkeep
-experiments/tcn/*
-!experiments/tcn/.gitkeep
-experiments/nbeats/*
-!experiments/nbeats/.gitkeep
-experiments/transformer/*
-!experiments/transformer/.gitkeep
-experiments/tft/*
-!experiments/tft/.gitkeep
-experiments/informer/*
-!experiments/informer/.gitkeep
+# Ignorar solo binarios pesados; metrics.json e history.json sí se versionan
+experiments/**/*.pt
+experiments/**/*.pth
+experiments/**/*.ckpt
+experiments/**/*.npz
+experiments/**/scaler_*.joblib
 mlruns/
 mlartifacts/
-*.ckpt
-*.pt
-*.pth
 *.h5
 *.onnx
 
