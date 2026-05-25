@@ -165,7 +165,7 @@ stats:
 # Para resultados oficiales, poner enabled: false (o eliminar el bloque entero).
 # =============================================================================
 sampling:
-  enabled: true                # Toggle único. false = pipeline completo.
+  enabled: false               # Toggle único. false = pipeline completo.
   n_stations_per_region: 1     # 1 estación por región × 5 regiones = 5 estaciones (vs 40)
   train_years: [2022, 2023]    # Solo 2 años de train (vs 6). val 2024 y test 2025 se mantienen.
   max_epochs_override: 10      # Cap a 10 épocas por run (vs lo que diga el yaml de cada modelo)
