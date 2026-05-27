@@ -16,44 +16,41 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -68,7 +65,6 @@
     <link rel="prev" title="Análisis Técnico del modelo original" href="05_guide_paper.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -84,8 +80,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -93,6 +100,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -100,8 +108,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -117,8 +125,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -148,11 +155,15 @@
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -178,14 +189,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -268,7 +274,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  class="btn btn-sm btn-fullscreen-button"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -282,17 +288,25 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -318,6 +332,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion-global-paths-e-imports">Configuración global, paths e imports</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-tabular"><strong>1. Comparación Tabular</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-resultados-desde-experiments">1.1 Carga de resultados desde <code class="docutils literal notranslate"><span class="pre">experiments/</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cobertura-de-experimentos-por-modelo">Cobertura de experimentos por modelo</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-y-bootstrap">1.2 Métricas y bootstrap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-1-por-modelo-horizonte">1.3 Tabla 1 — por (modelo × horizonte)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-2-agregada-por-modelo-promedio-sobre-horizontes">1.4 Tabla 2 — agregada por modelo (promedio sobre horizontes)</a></li>
@@ -327,6 +342,7 @@
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ranking-de-modelos"><strong>2. Ranking de Modelos</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ranking-principal">2.1 Ranking principal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ranking-comparativo-en-estaciones-comunes-todos-los-modelos">Ranking comparativo en estaciones comunes (todos los modelos)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ranking-por-horizonte-detecta-inversiones">2.2 Ranking por horizonte (detecta inversiones)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-trade-off-scatter-rmse-costo-y-frontera-de-pareto">2.3 Análisis trade-off — scatter RMSE × costo y frontera de Pareto</a></li>
 </ul>
@@ -344,6 +360,13 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion-vs-ground-truth-1-estacion-por-region">4.1 Predicción vs ground truth — 1 estación por región</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#errores-sistematicos-histograma-por-hora-del-dia-por-mes">4.2 Errores sistemáticos — histograma + por hora del día + por mes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#casos-dificiles">4.3 Casos difíciles</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen-ejecutivo-y-conclusiones"><strong>5. Resumen Ejecutivo y Conclusiones</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ranking-final-estaciones-comunes-a-los-7-modelos-a001-a101-a701-a801">Ranking final (estaciones comunes a los 7 modelos: A001, A101, A701, A801)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones-principales">Conclusiones principales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caveats-sobre-cobertura-parcial">Caveats sobre cobertura parcial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#archivos-de-resultados-generados">Archivos de resultados generados</a></li>
 </ul>
 </li>
 </ul>
@@ -399,11 +422,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>⚠️ MUESTREO PROVISIONAL ACTIVO — los resultados NO son finales.
-   n_stations_per_region: 1
-   train_years          : [2022, 2023]
-   max_epochs_override  : 5
-   n_seeds_override     : 2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✅ Configuración completa (sin muestreo). Resultados oficiales.
 </pre></div>
 </div>
 </div>
@@ -442,7 +461,7 @@
 <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">(</span><span class="n">FIG_DIR</span><span class="p">,</span> <span class="n">TAB_DIR</span><span class="p">,</span> <span class="n">STATS_DIR</span><span class="p">):</span>
     <span class="n">d</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">DEFAULT_MODELS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;persistence&quot;</span><span class="p">,</span> <span class="s2">&quot;lstm&quot;</span><span class="p">,</span> <span class="s2">&quot;gru&quot;</span><span class="p">,</span> <span class="s2">&quot;nbeats&quot;</span><span class="p">,</span> <span class="s2">&quot;tft&quot;</span><span class="p">,</span> <span class="s2">&quot;informer&quot;</span><span class="p">]</span>
+<span class="n">DEFAULT_MODELS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;persistence&quot;</span><span class="p">,</span> <span class="s2">&quot;lstm&quot;</span><span class="p">,</span> <span class="s2">&quot;gru&quot;</span><span class="p">,</span> <span class="s2">&quot;tcn&quot;</span><span class="p">,</span> <span class="s2">&quot;nbeats&quot;</span><span class="p">,</span> <span class="s2">&quot;transformer&quot;</span><span class="p">,</span> <span class="s2">&quot;tft&quot;</span><span class="p">]</span>
 <span class="n">DEFAULT_HORIZONS</span> <span class="o">=</span> <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">168</span><span class="p">]</span>
 
 <span class="n">ALPHA</span> <span class="o">=</span> <span class="mf">0.05</span>            <span class="c1"># nivel de significancia declarado</span>
@@ -533,7 +552,66 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicciones cargadas: 96 filas (modelo×station×seed×horizonte). Modelos: [&#39;gru&#39;, &#39;lstm&#39;, &#39;nbeats&#39;, &#39;persistence&#39;].
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicciones cargadas: 1155 filas (modelo×station×seed×horizonte). Modelos: [&#39;gru&#39;, &#39;lstm&#39;, &#39;nbeats&#39;, &#39;persistence&#39;, &#39;tcn&#39;, &#39;tft&#39;, &#39;transformer&#39;].
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cobertura-de-experimentos-por-modelo">
+<h3>Cobertura de experimentos por modelo<a class="headerlink" href="#cobertura-de-experimentos-por-modelo" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Estaciones comunes para comparacion justa entre modelos con distinta cobertura</span>
+<span class="n">COMMON_STATIONS_ALL7</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A001&quot;</span><span class="p">,</span> <span class="s2">&quot;A101&quot;</span><span class="p">,</span> <span class="s2">&quot;A701&quot;</span><span class="p">,</span> <span class="s2">&quot;A801&quot;</span><span class="p">]</span>
+<span class="n">COMMON_STATIONS_6</span>    <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A001&quot;</span><span class="p">,</span> <span class="s2">&quot;A101&quot;</span><span class="p">,</span> <span class="s2">&quot;A102&quot;</span><span class="p">,</span> <span class="s2">&quot;A104&quot;</span><span class="p">,</span> <span class="s2">&quot;A135&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;A201&quot;</span><span class="p">,</span> <span class="s2">&quot;A210&quot;</span><span class="p">,</span> <span class="s2">&quot;A701&quot;</span><span class="p">,</span> <span class="s2">&quot;A801&quot;</span><span class="p">]</span>
+
+<span class="n">_COV_META</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;persistence&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;completo&quot;</span><span class="p">,</span>  <span class="mi">36</span><span class="p">,</span> <span class="s2">&quot;36 est. x 2 seeds -- entrenamiento completo&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;lstm&quot;</span><span class="p">:</span>        <span class="p">(</span><span class="s2">&quot;completo&quot;</span><span class="p">,</span>  <span class="mi">36</span><span class="p">,</span> <span class="s2">&quot;36 est. x 2 seeds -- entrenamiento completo&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;gru&quot;</span><span class="p">:</span>         <span class="p">(</span><span class="s2">&quot;completo&quot;</span><span class="p">,</span>  <span class="mi">36</span><span class="p">,</span> <span class="s2">&quot;36 est. x 2 seeds -- entrenamiento completo&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;tcn&quot;</span><span class="p">:</span>         <span class="p">(</span><span class="s2">&quot;completo&quot;</span><span class="p">,</span>  <span class="mi">36</span><span class="p">,</span> <span class="s2">&quot;36 est. x 2 seeds -- entrenamiento completo&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;nbeats&quot;</span><span class="p">:</span>      <span class="p">(</span><span class="s2">&quot;completo&quot;</span><span class="p">,</span>  <span class="mi">36</span><span class="p">,</span> <span class="s2">&quot;36 est. x 2 seeds -- entrenamiento completo&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;transformer&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;parcial&quot;</span><span class="p">,</span>    <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;9 est., sampling GPU (10 epochs) -- preliminar&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;tft&quot;</span><span class="p">:</span>         <span class="p">(</span><span class="s2">&quot;parcial&quot;</span><span class="p">,</span>    <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;4 est., sampling GPU (10 epochs) -- preliminar&quot;</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">PRED_LONG</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+    <span class="n">_n_st</span>  <span class="o">=</span> <span class="n">PRED_LONG</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">)[</span><span class="s2">&quot;station&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+    <span class="n">_n_run</span> <span class="o">=</span> <span class="n">PRED_LONG</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+                 <span class="k">lambda</span> <span class="n">g</span><span class="p">:</span> <span class="n">g</span><span class="p">[[</span><span class="s2">&quot;station&quot;</span><span class="p">,</span> <span class="s2">&quot;seed&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">_cov_rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_m</span> <span class="ow">in</span> <span class="n">DEFAULT_MODELS</span><span class="p">:</span>
+        <span class="n">_tipo</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_nota</span> <span class="o">=</span> <span class="n">_COV_META</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_m</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+        <span class="n">_cov_rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">_m</span><span class="p">,</span>
+                          <span class="s2">&quot;n_stations&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">_n_st</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_m</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+                          <span class="s2">&quot;n_runs&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">_n_run</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_m</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+                          <span class="s2">&quot;tipo&quot;</span><span class="p">:</span> <span class="n">_tipo</span><span class="p">,</span>
+                          <span class="s2">&quot;nota&quot;</span><span class="p">:</span> <span class="n">_nota</span><span class="p">})</span>
+    <span class="n">COV_TABLE</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">_cov_rows</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cobertura de experimentos por modelo:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">COV_TABLE</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Estaciones comunes (7 modelos): </span><span class="si">{</span><span class="n">COMMON_STATIONS_ALL7</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Estaciones comunes (6 mod, sin TFT): </span><span class="si">{</span><span class="n">COMMON_STATIONS_6</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">COV_TABLE</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cobertura de experimentos por modelo:
+      model  n_stations  n_runs     tipo                                           nota
+persistence          36      72 completo    36 est. x 2 seeds -- entrenamiento completo
+       lstm          36      72 completo    36 est. x 2 seeds -- entrenamiento completo
+        gru          36      72 completo    36 est. x 2 seeds -- entrenamiento completo
+        tcn          36      72 completo    36 est. x 2 seeds -- entrenamiento completo
+     nbeats          36      72 completo    36 est. x 2 seeds -- entrenamiento completo
+transformer           9      17  parcial 9 est., sampling GPU (10 epochs) -- preliminar
+        tft           4       8  parcial 4 est., sampling GPU (10 epochs) -- preliminar
+
+Estaciones comunes (7 modelos): [&#39;A001&#39;, &#39;A101&#39;, &#39;A701&#39;, &#39;A801&#39;]
+Estaciones comunes (6 mod, sin TFT): [&#39;A001&#39;, &#39;A101&#39;, &#39;A102&#39;, &#39;A104&#39;, &#39;A135&#39;, &#39;A201&#39;, &#39;A210&#39;, &#39;A701&#39;, &#39;A801&#39;]
 </pre></div>
 </div>
 </div>
@@ -627,12 +705,12 @@ errores brutos.</p>
       <td>Centro-Oeste</td>
       <td>42</td>
       <td>24</td>
-      <td>5.444756</td>
-      <td>3.553463</td>
-      <td>-0.888559</td>
-      <td>15.804527</td>
-      <td>4.92085</td>
-      <td>6.087968</td>
+      <td>5.018974</td>
+      <td>3.485432</td>
+      <td>-0.608893</td>
+      <td>15.690542</td>
+      <td>4.628543</td>
+      <td>5.485484</td>
     </tr>
     <tr>
       <th>1</th>
@@ -641,12 +719,12 @@ errores brutos.</p>
       <td>Centro-Oeste</td>
       <td>42</td>
       <td>72</td>
-      <td>5.444756</td>
-      <td>3.553463</td>
-      <td>-0.888559</td>
-      <td>15.804527</td>
-      <td>4.92085</td>
-      <td>6.087968</td>
+      <td>5.034158</td>
+      <td>3.494718</td>
+      <td>-0.604943</td>
+      <td>15.722053</td>
+      <td>4.637145</td>
+      <td>5.476650</td>
     </tr>
     <tr>
       <th>2</th>
@@ -655,12 +733,12 @@ errores brutos.</p>
       <td>Centro-Oeste</td>
       <td>42</td>
       <td>168</td>
-      <td>5.444756</td>
-      <td>3.553463</td>
-      <td>-0.888559</td>
-      <td>15.804527</td>
-      <td>4.92085</td>
-      <td>6.087968</td>
+      <td>4.978442</td>
+      <td>3.485303</td>
+      <td>-0.563884</td>
+      <td>15.680705</td>
+      <td>4.624896</td>
+      <td>5.398048</td>
     </tr>
     <tr>
       <th>3</th>
@@ -669,12 +747,12 @@ errores brutos.</p>
       <td>Centro-Oeste</td>
       <td>43</td>
       <td>24</td>
-      <td>5.444756</td>
-      <td>3.553463</td>
-      <td>-0.888559</td>
-      <td>15.804527</td>
-      <td>4.92085</td>
-      <td>6.087968</td>
+      <td>5.018974</td>
+      <td>3.485432</td>
+      <td>-0.608893</td>
+      <td>15.690542</td>
+      <td>4.628543</td>
+      <td>5.485484</td>
     </tr>
     <tr>
       <th>4</th>
@@ -683,12 +761,12 @@ errores brutos.</p>
       <td>Centro-Oeste</td>
       <td>43</td>
       <td>72</td>
-      <td>5.444756</td>
-      <td>3.553463</td>
-      <td>-0.888559</td>
-      <td>15.804527</td>
-      <td>4.92085</td>
-      <td>6.087968</td>
+      <td>5.034158</td>
+      <td>3.494718</td>
+      <td>-0.604943</td>
+      <td>15.722053</td>
+      <td>4.637145</td>
+      <td>5.476650</td>
     </tr>
   </tbody>
 </table>
@@ -763,181 +841,316 @@ errores brutos.</p>
       <th>0</th>
       <td>gru</td>
       <td>24</td>
-      <td>2.1602</td>
-      <td>0.3678</td>
-      <td>1.6419</td>
-      <td>0.2769</td>
-      <td>0.7260</td>
-      <td>0.1177</td>
-      <td>7.8473</td>
-      <td>2.3677</td>
-      <td>1.9124</td>
-      <td>2.4025</td>
+      <td>2.4189</td>
+      <td>1.1125</td>
+      <td>1.9274</td>
+      <td>1.0776</td>
+      <td>0.1608</td>
+      <td>1.8997</td>
+      <td>8.8972</td>
+      <td>5.3080</td>
+      <td>2.1847</td>
+      <td>2.6844</td>
     </tr>
     <tr>
       <th>1</th>
       <td>gru</td>
       <td>72</td>
-      <td>2.1602</td>
-      <td>0.3678</td>
-      <td>1.6419</td>
-      <td>0.2769</td>
-      <td>0.7260</td>
-      <td>0.1177</td>
-      <td>7.8473</td>
-      <td>2.3677</td>
-      <td>1.9124</td>
-      <td>2.4025</td>
+      <td>2.9930</td>
+      <td>1.4374</td>
+      <td>2.4120</td>
+      <td>1.3655</td>
+      <td>-0.5572</td>
+      <td>3.6836</td>
+      <td>11.1985</td>
+      <td>6.9583</td>
+      <td>2.6778</td>
+      <td>3.3359</td>
     </tr>
     <tr>
       <th>2</th>
       <td>gru</td>
       <td>168</td>
-      <td>2.1602</td>
-      <td>0.3678</td>
-      <td>1.6419</td>
-      <td>0.2769</td>
-      <td>0.7260</td>
-      <td>0.1177</td>
-      <td>7.8473</td>
-      <td>2.3677</td>
-      <td>1.9124</td>
-      <td>2.4025</td>
+      <td>3.1613</td>
+      <td>1.6880</td>
+      <td>2.5778</td>
+      <td>1.6287</td>
+      <td>-1.5020</td>
+      <td>6.8388</td>
+      <td>11.9511</td>
+      <td>8.2337</td>
+      <td>2.8028</td>
+      <td>3.5563</td>
     </tr>
     <tr>
       <th>3</th>
       <td>lstm</td>
       <td>24</td>
-      <td>2.1789</td>
-      <td>0.3949</td>
-      <td>1.6433</td>
-      <td>0.2955</td>
-      <td>0.7226</td>
-      <td>0.1173</td>
-      <td>7.8556</td>
-      <td>2.4510</td>
-      <td>1.9157</td>
-      <td>2.4353</td>
+      <td>2.4853</td>
+      <td>1.3224</td>
+      <td>1.9704</td>
+      <td>1.2786</td>
+      <td>0.0279</td>
+      <td>2.3625</td>
+      <td>9.1058</td>
+      <td>6.0559</td>
+      <td>2.2165</td>
+      <td>2.7892</td>
     </tr>
     <tr>
       <th>4</th>
       <td>lstm</td>
       <td>72</td>
-      <td>2.1789</td>
-      <td>0.3949</td>
-      <td>1.6433</td>
-      <td>0.2955</td>
-      <td>0.7226</td>
-      <td>0.1173</td>
-      <td>7.8556</td>
-      <td>2.4510</td>
-      <td>1.9157</td>
-      <td>2.4353</td>
+      <td>2.9114</td>
+      <td>1.4149</td>
+      <td>2.3235</td>
+      <td>1.3373</td>
+      <td>-0.2687</td>
+      <td>2.9730</td>
+      <td>10.8631</td>
+      <td>6.9791</td>
+      <td>2.6102</td>
+      <td>3.2355</td>
     </tr>
     <tr>
       <th>5</th>
       <td>lstm</td>
       <td>168</td>
-      <td>2.1789</td>
-      <td>0.3949</td>
-      <td>1.6433</td>
-      <td>0.2955</td>
-      <td>0.7226</td>
-      <td>0.1173</td>
-      <td>7.8556</td>
-      <td>2.4510</td>
-      <td>1.9157</td>
-      <td>2.4353</td>
+      <td>2.9790</td>
+      <td>1.4222</td>
+      <td>2.4042</td>
+      <td>1.3481</td>
+      <td>-0.6418</td>
+      <td>4.1006</td>
+      <td>11.2210</td>
+      <td>7.1125</td>
+      <td>2.6718</td>
+      <td>3.3083</td>
     </tr>
     <tr>
       <th>6</th>
       <td>nbeats</td>
       <td>24</td>
-      <td>3.8795</td>
-      <td>1.0025</td>
-      <td>3.0915</td>
-      <td>0.8013</td>
-      <td>0.2026</td>
-      <td>0.0742</td>
-      <td>14.7702</td>
-      <td>5.6125</td>
-      <td>3.2281</td>
-      <td>4.5093</td>
+      <td>4.0907</td>
+      <td>2.0378</td>
+      <td>3.3605</td>
+      <td>1.7812</td>
+      <td>-0.8221</td>
+      <td>3.3608</td>
+      <td>15.5846</td>
+      <td>9.6639</td>
+      <td>3.6016</td>
+      <td>4.5591</td>
     </tr>
     <tr>
       <th>7</th>
       <td>nbeats</td>
       <td>72</td>
-      <td>3.8795</td>
-      <td>1.0025</td>
-      <td>3.0915</td>
-      <td>0.8013</td>
-      <td>0.2026</td>
-      <td>0.0742</td>
-      <td>14.7702</td>
-      <td>5.6125</td>
-      <td>3.2281</td>
-      <td>4.5093</td>
+      <td>4.1232</td>
+      <td>2.0223</td>
+      <td>3.3884</td>
+      <td>1.7707</td>
+      <td>-0.9002</td>
+      <td>3.6726</td>
+      <td>15.7198</td>
+      <td>9.6709</td>
+      <td>3.6395</td>
+      <td>4.5949</td>
     </tr>
     <tr>
       <th>8</th>
       <td>nbeats</td>
       <td>168</td>
-      <td>3.8795</td>
-      <td>1.0025</td>
-      <td>3.0915</td>
-      <td>0.8013</td>
-      <td>0.2026</td>
-      <td>0.0742</td>
-      <td>14.7702</td>
-      <td>5.6125</td>
-      <td>3.2281</td>
-      <td>4.5093</td>
+      <td>4.1411</td>
+      <td>2.0698</td>
+      <td>3.4074</td>
+      <td>1.7936</td>
+      <td>-1.1212</td>
+      <td>4.9254</td>
+      <td>15.8712</td>
+      <td>10.0172</td>
+      <td>3.6543</td>
+      <td>4.6301</td>
     </tr>
     <tr>
       <th>9</th>
       <td>persistence</td>
       <td>24</td>
-      <td>6.3269</td>
-      <td>1.6581</td>
-      <td>4.0425</td>
-      <td>1.1955</td>
-      <td>-1.1333</td>
-      <td>0.2957</td>
-      <td>18.2085</td>
-      <td>7.2399</td>
-      <td>5.2466</td>
-      <td>7.4072</td>
+      <td>5.7387</td>
+      <td>2.1936</td>
+      <td>4.0885</td>
+      <td>1.7927</td>
+      <td>-2.5250</td>
+      <td>6.4684</td>
+      <td>17.8723</td>
+      <td>8.7019</td>
+      <td>5.2135</td>
+      <td>6.2352</td>
     </tr>
     <tr>
       <th>10</th>
       <td>persistence</td>
       <td>72</td>
-      <td>6.3269</td>
-      <td>1.6581</td>
-      <td>4.0425</td>
-      <td>1.1955</td>
-      <td>-1.1333</td>
-      <td>0.2957</td>
-      <td>18.2085</td>
-      <td>7.2399</td>
-      <td>5.2466</td>
-      <td>7.4072</td>
+      <td>5.7132</td>
+      <td>2.1855</td>
+      <td>4.0813</td>
+      <td>1.7871</td>
+      <td>-2.5473</td>
+      <td>6.5953</td>
+      <td>17.8426</td>
+      <td>8.6681</td>
+      <td>5.1842</td>
+      <td>6.2077</td>
     </tr>
     <tr>
       <th>11</th>
       <td>persistence</td>
       <td>168</td>
-      <td>6.3269</td>
-      <td>1.6581</td>
-      <td>4.0425</td>
-      <td>1.1955</td>
-      <td>-1.1333</td>
-      <td>0.2957</td>
-      <td>18.2085</td>
-      <td>7.2399</td>
-      <td>5.2466</td>
-      <td>7.4072</td>
+      <td>5.7031</td>
+      <td>2.1763</td>
+      <td>4.0841</td>
+      <td>1.7847</td>
+      <td>-2.8326</td>
+      <td>7.9667</td>
+      <td>17.8530</td>
+      <td>8.6573</td>
+      <td>5.1790</td>
+      <td>6.1967</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>tcn</td>
+      <td>24</td>
+      <td>2.0608</td>
+      <td>0.9386</td>
+      <td>1.5798</td>
+      <td>0.7607</td>
+      <td>0.4196</td>
+      <td>1.1947</td>
+      <td>7.4610</td>
+      <td>4.4269</td>
+      <td>1.8489</td>
+      <td>2.2845</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>tcn</td>
+      <td>72</td>
+      <td>2.6060</td>
+      <td>1.3199</td>
+      <td>2.0487</td>
+      <td>1.0916</td>
+      <td>-0.0599</td>
+      <td>2.3434</td>
+      <td>9.6903</td>
+      <td>6.2649</td>
+      <td>2.3088</td>
+      <td>2.9195</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>tcn</td>
+      <td>168</td>
+      <td>2.8161</td>
+      <td>1.4162</td>
+      <td>2.2413</td>
+      <td>1.1745</td>
+      <td>-0.6432</td>
+      <td>4.4646</td>
+      <td>10.5338</td>
+      <td>6.7164</td>
+      <td>2.4985</td>
+      <td>3.1744</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>tft</td>
+      <td>24</td>
+      <td>3.8138</td>
+      <td>0.6128</td>
+      <td>3.1200</td>
+      <td>0.4673</td>
+      <td>0.1664</td>
+      <td>0.2305</td>
+      <td>14.7705</td>
+      <td>4.1288</td>
+      <td>3.3785</td>
+      <td>4.1757</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>tft</td>
+      <td>72</td>
+      <td>3.8413</td>
+      <td>0.6118</td>
+      <td>3.1359</td>
+      <td>0.4659</td>
+      <td>0.1594</td>
+      <td>0.2340</td>
+      <td>14.8312</td>
+      <td>4.1156</td>
+      <td>3.4097</td>
+      <td>4.1939</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>tft</td>
+      <td>168</td>
+      <td>3.8836</td>
+      <td>0.6776</td>
+      <td>3.1653</td>
+      <td>0.5095</td>
+      <td>0.1556</td>
+      <td>0.2190</td>
+      <td>14.9736</td>
+      <td>4.2599</td>
+      <td>3.4017</td>
+      <td>4.2791</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>transformer</td>
+      <td>24</td>
+      <td>2.1306</td>
+      <td>0.9638</td>
+      <td>1.6369</td>
+      <td>0.7911</td>
+      <td>0.5054</td>
+      <td>0.3442</td>
+      <td>7.0786</td>
+      <td>3.8604</td>
+      <td>1.6364</td>
+      <td>2.5527</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>transformer</td>
+      <td>72</td>
+      <td>2.3997</td>
+      <td>1.1373</td>
+      <td>1.8487</td>
+      <td>0.9199</td>
+      <td>0.4043</td>
+      <td>0.3715</td>
+      <td>8.0756</td>
+      <td>4.8074</td>
+      <td>1.8128</td>
+      <td>2.8958</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>transformer</td>
+      <td>168</td>
+      <td>2.5356</td>
+      <td>1.2647</td>
+      <td>1.9559</td>
+      <td>1.0204</td>
+      <td>0.3413</td>
+      <td>0.4339</td>
+      <td>8.6255</td>
+      <td>5.5202</td>
+      <td>1.8825</td>
+      <td>3.0957</td>
     </tr>
   </tbody>
 </table>
@@ -950,13 +1163,25 @@ errores brutos.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TBL_MODEL</span> <span class="o">=</span> <span class="n">_agg_mean_std</span><span class="p">(</span><span class="n">PER_RUN</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">])</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">PER_RUN</span><span class="o">.</span><span class="n">empty</span> <span class="k">else</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">TBL_MODEL</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
-    <span class="n">TBL_MODEL</span> <span class="o">=</span> <span class="n">TBL_MODEL</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;rmse_mean&quot;</span><span class="p">)</span>
+    <span class="n">TBL_MODEL</span> <span class="o">=</span> <span class="n">TBL_MODEL</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;rmse_mean&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">COV_TABLE</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="n">_cov_map</span> <span class="o">=</span> <span class="n">COV_TABLE</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">)[[</span><span class="s2">&quot;n_stations&quot;</span><span class="p">,</span> <span class="s2">&quot;tipo&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+            <span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;tipo&quot;</span><span class="p">:</span> <span class="s2">&quot;coverage&quot;</span><span class="p">})</span>
+        <span class="n">TBL_MODEL</span> <span class="o">=</span> <span class="n">TBL_MODEL</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">_cov_map</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
     <span class="n">TBL_MODEL</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">TAB_DIR</span> <span class="o">/</span> <span class="s2">&quot;tabla_modelo_agg.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nota: transformer (9 est.) y tft (4 est.) usaron sampling GPU (10 epochs).&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;      RMSE promediado sobre menos estaciones -- no comparable directamente.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;      Ver ranking comparativo en estaciones comunes mas abajo.&quot;</span><span class="p">)</span>
 <span class="n">TBL_MODEL</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nota: transformer (9 est.) y tft (4 est.) usaron sampling GPU (10 epochs).
+      RMSE promediado sobre menos estaciones -- no comparable directamente.
+      Ver ranking comparativo en estaciones comunes mas abajo.
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -986,64 +1211,122 @@ errores brutos.</p>
       <th>smape_std</th>
       <th>rmse_ci_lo</th>
       <th>rmse_ci_hi</th>
+      <th>n_stations</th>
+      <th>coverage</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>gru</td>
-      <td>2.1602</td>
-      <td>0.3515</td>
-      <td>1.6419</td>
-      <td>0.2646</td>
-      <td>0.7260</td>
-      <td>0.1125</td>
-      <td>7.8473</td>
-      <td>2.2625</td>
-      <td>2.0207</td>
-      <td>2.3047</td>
+      <td>transformer</td>
+      <td>2.3553</td>
+      <td>1.1189</td>
+      <td>1.8138</td>
+      <td>0.9067</td>
+      <td>0.4170</td>
+      <td>0.3824</td>
+      <td>7.9266</td>
+      <td>4.7259</td>
+      <td>2.0381</td>
+      <td>2.6601</td>
+      <td>9</td>
+      <td>parcial</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>lstm</td>
-      <td>2.1789</td>
-      <td>0.3774</td>
-      <td>1.6433</td>
-      <td>0.2823</td>
-      <td>0.7226</td>
-      <td>0.1120</td>
-      <td>7.8556</td>
-      <td>2.3420</td>
-      <td>2.0251</td>
-      <td>2.3372</td>
+      <td>tcn</td>
+      <td>2.4943</td>
+      <td>1.2768</td>
+      <td>1.9566</td>
+      <td>1.0572</td>
+      <td>-0.0945</td>
+      <td>3.0077</td>
+      <td>9.2284</td>
+      <td>6.0015</td>
+      <td>2.3224</td>
+      <td>2.6645</td>
+      <td>36</td>
+      <td>completo</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>nbeats</td>
-      <td>3.8795</td>
-      <td>0.9579</td>
-      <td>3.0915</td>
-      <td>0.7657</td>
-      <td>0.2026</td>
-      <td>0.0709</td>
-      <td>14.7702</td>
-      <td>5.3629</td>
-      <td>3.4897</td>
-      <td>4.2627</td>
+      <td>lstm</td>
+      <td>2.7919</td>
+      <td>1.3980</td>
+      <td>2.2327</td>
+      <td>1.3290</td>
+      <td>-0.2942</td>
+      <td>3.2215</td>
+      <td>10.3966</td>
+      <td>6.7646</td>
+      <td>2.6117</td>
+      <td>2.9653</td>
+      <td>36</td>
+      <td>completo</td>
     </tr>
     <tr>
       <th>3</th>
+      <td>gru</td>
+      <td>2.8578</td>
+      <td>1.4606</td>
+      <td>2.3057</td>
+      <td>1.3970</td>
+      <td>-0.6328</td>
+      <td>4.6431</td>
+      <td>10.6823</td>
+      <td>7.0269</td>
+      <td>2.6602</td>
+      <td>3.0455</td>
+      <td>36</td>
+      <td>completo</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>tft</td>
+      <td>3.8462</td>
+      <td>0.6073</td>
+      <td>3.1404</td>
+      <td>0.4603</td>
+      <td>0.1605</td>
+      <td>0.2178</td>
+      <td>14.8584</td>
+      <td>3.9842</td>
+      <td>3.5967</td>
+      <td>4.0860</td>
+      <td>4</td>
+      <td>parcial</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>nbeats</td>
+      <td>4.1183</td>
+      <td>2.0340</td>
+      <td>3.3854</td>
+      <td>1.7737</td>
+      <td>-0.9478</td>
+      <td>4.0240</td>
+      <td>15.7252</td>
+      <td>9.7405</td>
+      <td>3.8482</td>
+      <td>4.3807</td>
+      <td>36</td>
+      <td>completo</td>
+    </tr>
+    <tr>
+      <th>6</th>
       <td>persistence</td>
-      <td>6.3269</td>
-      <td>1.5844</td>
-      <td>4.0425</td>
-      <td>1.1423</td>
-      <td>-1.1333</td>
-      <td>0.2826</td>
-      <td>18.2085</td>
-      <td>6.9180</td>
-      <td>5.7145</td>
-      <td>6.9728</td>
+      <td>5.7184</td>
+      <td>2.1750</td>
+      <td>4.0847</td>
+      <td>1.7798</td>
+      <td>-2.6350</td>
+      <td>7.0073</td>
+      <td>17.8560</td>
+      <td>8.6353</td>
+      <td>5.4188</td>
+      <td>6.0027</td>
+      <td>36</td>
+      <td>completo</td>
     </tr>
   </tbody>
 </table>
@@ -1099,241 +1382,496 @@ errores brutos.</p>
       <th>0</th>
       <td>gru</td>
       <td>Centro-Oeste</td>
-      <td>1.7693</td>
-      <td>0.0054</td>
-      <td>1.3618</td>
-      <td>0.0111</td>
-      <td>0.8006</td>
-      <td>0.0012</td>
-      <td>6.4102</td>
-      <td>0.0309</td>
-      <td>1.7660</td>
-      <td>1.7726</td>
+      <td>3.6018</td>
+      <td>1.4346</td>
+      <td>2.9574</td>
+      <td>1.6209</td>
+      <td>0.6259</td>
+      <td>0.1225</td>
+      <td>11.3760</td>
+      <td>4.6077</td>
+      <td>3.1555</td>
+      <td>4.0678</td>
     </tr>
     <tr>
       <th>1</th>
       <td>gru</td>
-      <td>Norte</td>
-      <td>1.8706</td>
-      <td>0.0246</td>
-      <td>1.4123</td>
-      <td>0.0152</td>
-      <td>0.5425</td>
-      <td>0.0120</td>
-      <td>5.0991</td>
-      <td>0.0496</td>
-      <td>1.8556</td>
-      <td>1.8856</td>
+      <td>Nordeste</td>
+      <td>2.1223</td>
+      <td>0.9902</td>
+      <td>1.8604</td>
+      <td>1.0144</td>
+      <td>-5.8304</td>
+      <td>9.8460</td>
+      <td>6.8431</td>
+      <td>3.5007</td>
+      <td>1.8443</td>
+      <td>2.4017</td>
     </tr>
     <tr>
       <th>2</th>
       <td>gru</td>
-      <td>Sudeste</td>
-      <td>2.4522</td>
-      <td>0.0160</td>
-      <td>1.8387</td>
-      <td>0.0115</td>
-      <td>0.7404</td>
-      <td>0.0034</td>
-      <td>9.1542</td>
-      <td>0.0719</td>
-      <td>2.4425</td>
-      <td>2.4620</td>
+      <td>Norte</td>
+      <td>1.8996</td>
+      <td>0.9468</td>
+      <td>1.4265</td>
+      <td>0.7193</td>
+      <td>0.4841</td>
+      <td>0.2719</td>
+      <td>5.1492</td>
+      <td>2.4572</td>
+      <td>1.6207</td>
+      <td>2.1930</td>
     </tr>
     <tr>
       <th>3</th>
       <td>gru</td>
-      <td>Sul</td>
-      <td>2.5486</td>
-      <td>0.0001</td>
-      <td>1.9549</td>
-      <td>0.0087</td>
-      <td>0.8204</td>
-      <td>0.0000</td>
-      <td>10.7258</td>
-      <td>0.0566</td>
-      <td>2.5485</td>
-      <td>2.5487</td>
+      <td>Sudeste</td>
+      <td>2.6713</td>
+      <td>0.5404</td>
+      <td>2.0467</td>
+      <td>0.4365</td>
+      <td>0.5919</td>
+      <td>0.2110</td>
+      <td>9.6116</td>
+      <td>2.3843</td>
+      <td>2.5270</td>
+      <td>2.8021</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>lstm</td>
-      <td>Centro-Oeste</td>
-      <td>1.7558</td>
-      <td>0.0093</td>
-      <td>1.3407</td>
-      <td>0.0115</td>
-      <td>0.8036</td>
-      <td>0.0021</td>
-      <td>6.2898</td>
-      <td>0.0408</td>
-      <td>1.7501</td>
-      <td>1.7614</td>
+      <td>gru</td>
+      <td>Sul</td>
+      <td>4.1534</td>
+      <td>1.8521</td>
+      <td>3.4048</td>
+      <td>1.8723</td>
+      <td>-0.3514</td>
+      <td>2.7664</td>
+      <td>20.8365</td>
+      <td>7.8196</td>
+      <td>3.6360</td>
+      <td>4.7965</td>
     </tr>
     <tr>
       <th>5</th>
       <td>lstm</td>
-      <td>Norte</td>
-      <td>1.8726</td>
-      <td>0.0300</td>
-      <td>1.4039</td>
-      <td>0.0349</td>
-      <td>0.5415</td>
-      <td>0.0147</td>
-      <td>5.0705</td>
-      <td>0.1256</td>
-      <td>1.8543</td>
-      <td>1.8908</td>
+      <td>Centro-Oeste</td>
+      <td>3.4989</td>
+      <td>1.2656</td>
+      <td>2.8682</td>
+      <td>1.4421</td>
+      <td>0.6361</td>
+      <td>0.1134</td>
+      <td>11.0469</td>
+      <td>3.9794</td>
+      <td>3.0882</td>
+      <td>3.8950</td>
     </tr>
     <tr>
       <th>6</th>
       <td>lstm</td>
-      <td>Sudeste</td>
-      <td>2.4991</td>
-      <td>0.0017</td>
-      <td>1.8529</td>
-      <td>0.0019</td>
-      <td>0.7304</td>
-      <td>0.0004</td>
-      <td>9.2176</td>
-      <td>0.0111</td>
-      <td>2.4981</td>
-      <td>2.5001</td>
+      <td>Nordeste</td>
+      <td>1.7749</td>
+      <td>0.6448</td>
+      <td>1.5016</td>
+      <td>0.6443</td>
+      <td>-3.6354</td>
+      <td>6.7484</td>
+      <td>5.6397</td>
+      <td>2.4160</td>
+      <td>1.5822</td>
+      <td>1.9667</td>
     </tr>
     <tr>
       <th>7</th>
       <td>lstm</td>
-      <td>Sul</td>
-      <td>2.5882</td>
-      <td>0.0502</td>
-      <td>1.9758</td>
-      <td>0.0354</td>
-      <td>0.8147</td>
-      <td>0.0072</td>
-      <td>10.8444</td>
-      <td>0.1321</td>
-      <td>2.5577</td>
-      <td>2.6187</td>
+      <td>Norte</td>
+      <td>1.9249</td>
+      <td>0.9117</td>
+      <td>1.4318</td>
+      <td>0.6823</td>
+      <td>0.4769</td>
+      <td>0.2238</td>
+      <td>5.1820</td>
+      <td>2.3910</td>
+      <td>1.6392</td>
+      <td>2.1981</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>nbeats</td>
-      <td>Centro-Oeste</td>
-      <td>3.4320</td>
-      <td>0.0210</td>
-      <td>2.7294</td>
-      <td>0.0146</td>
-      <td>0.2496</td>
-      <td>0.0092</td>
-      <td>12.6999</td>
-      <td>0.0701</td>
-      <td>3.4192</td>
-      <td>3.4448</td>
+      <td>lstm</td>
+      <td>Sudeste</td>
+      <td>2.7154</td>
+      <td>0.5426</td>
+      <td>2.0748</td>
+      <td>0.4296</td>
+      <td>0.5683</td>
+      <td>0.2430</td>
+      <td>9.7220</td>
+      <td>2.2962</td>
+      <td>2.5668</td>
+      <td>2.8499</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>nbeats</td>
-      <td>Norte</td>
-      <td>2.6186</td>
-      <td>0.0234</td>
-      <td>2.0936</td>
-      <td>0.0034</td>
-      <td>0.1036</td>
-      <td>0.0160</td>
-      <td>7.5303</td>
-      <td>0.0187</td>
-      <td>2.6044</td>
-      <td>2.6329</td>
+      <td>lstm</td>
+      <td>Sul</td>
+      <td>4.1683</td>
+      <td>1.7427</td>
+      <td>3.4228</td>
+      <td>1.8233</td>
+      <td>-0.3419</td>
+      <td>2.3876</td>
+      <td>20.6781</td>
+      <td>6.9122</td>
+      <td>3.6711</td>
+      <td>4.7390</td>
     </tr>
     <tr>
       <th>10</th>
       <td>nbeats</td>
-      <td>Sudeste</td>
-      <td>4.3688</td>
-      <td>0.0261</td>
-      <td>3.4597</td>
-      <td>0.0225</td>
-      <td>0.1762</td>
-      <td>0.0098</td>
-      <td>17.1679</td>
-      <td>0.1067</td>
-      <td>4.3530</td>
-      <td>4.3847</td>
+      <td>Centro-Oeste</td>
+      <td>5.5383</td>
+      <td>2.4506</td>
+      <td>4.6171</td>
+      <td>2.2248</td>
+      <td>-0.0843</td>
+      <td>0.7812</td>
+      <td>19.2531</td>
+      <td>11.0169</td>
+      <td>4.7938</td>
+      <td>6.4026</td>
     </tr>
     <tr>
       <th>11</th>
       <td>nbeats</td>
-      <td>Sul</td>
-      <td>5.0986</td>
-      <td>0.0220</td>
-      <td>4.0834</td>
-      <td>0.0231</td>
-      <td>0.2811</td>
-      <td>0.0062</td>
-      <td>21.6825</td>
-      <td>0.0799</td>
-      <td>5.0852</td>
-      <td>5.1120</td>
+      <td>Nordeste</td>
+      <td>2.1439</td>
+      <td>1.0439</td>
+      <td>1.8734</td>
+      <td>1.0128</td>
+      <td>-4.4071</td>
+      <td>9.0241</td>
+      <td>6.9728</td>
+      <td>3.8358</td>
+      <td>1.8533</td>
+      <td>2.4882</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>persistence</td>
-      <td>Centro-Oeste</td>
-      <td>5.4448</td>
-      <td>0.0000</td>
-      <td>3.5535</td>
-      <td>0.0000</td>
-      <td>-0.8886</td>
-      <td>0.0000</td>
-      <td>15.8045</td>
-      <td>0.0000</td>
-      <td>5.4448</td>
-      <td>5.4448</td>
+      <td>nbeats</td>
+      <td>Norte</td>
+      <td>3.1515</td>
+      <td>1.7231</td>
+      <td>2.5682</td>
+      <td>1.4985</td>
+      <td>-0.4550</td>
+      <td>0.8976</td>
+      <td>9.2287</td>
+      <td>5.1729</td>
+      <td>2.6435</td>
+      <td>3.6553</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>persistence</td>
-      <td>Norte</td>
-      <td>4.4620</td>
-      <td>0.0000</td>
-      <td>2.6702</td>
-      <td>0.0000</td>
-      <td>-1.6025</td>
-      <td>0.0000</td>
-      <td>9.1895</td>
-      <td>0.0000</td>
-      <td>4.4620</td>
-      <td>4.4620</td>
+      <td>nbeats</td>
+      <td>Sudeste</td>
+      <td>3.9515</td>
+      <td>0.5853</td>
+      <td>3.1427</td>
+      <td>0.4667</td>
+      <td>0.1645</td>
+      <td>0.0906</td>
+      <td>14.7532</td>
+      <td>2.9735</td>
+      <td>3.7993</td>
+      <td>4.1013</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>persistence</td>
-      <td>Sudeste</td>
-      <td>6.8078</td>
-      <td>0.0000</td>
-      <td>4.2155</td>
-      <td>0.0000</td>
-      <td>-1.0003</td>
-      <td>0.0000</td>
-      <td>19.9770</td>
-      <td>0.0000</td>
-      <td>6.8078</td>
-      <td>6.8078</td>
+      <td>nbeats</td>
+      <td>Sul</td>
+      <td>6.0570</td>
+      <td>1.2072</td>
+      <td>4.9709</td>
+      <td>1.3069</td>
+      <td>-0.9463</td>
+      <td>2.3576</td>
+      <td>29.2000</td>
+      <td>4.5973</td>
+      <td>5.7162</td>
+      <td>6.4573</td>
     </tr>
     <tr>
       <th>15</th>
       <td>persistence</td>
+      <td>Centro-Oeste</td>
+      <td>7.4339</td>
+      <td>1.8145</td>
+      <td>5.4520</td>
+      <td>2.2781</td>
+      <td>-0.8340</td>
+      <td>0.3171</td>
+      <td>20.8312</td>
+      <td>6.9171</td>
+      <td>6.8481</td>
+      <td>8.0221</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>persistence</td>
+      <td>Nordeste</td>
+      <td>3.5555</td>
+      <td>1.8018</td>
+      <td>2.9101</td>
+      <td>1.5285</td>
+      <td>-10.4450</td>
+      <td>15.4428</td>
+      <td>10.6448</td>
+      <td>5.3666</td>
+      <td>3.0482</td>
+      <td>4.1052</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>persistence</td>
+      <td>Norte</td>
+      <td>4.6417</td>
+      <td>2.1793</td>
+      <td>3.0858</td>
+      <td>1.2779</td>
+      <td>-1.7011</td>
+      <td>0.9971</td>
+      <td>10.8990</td>
+      <td>4.2460</td>
+      <td>4.0019</td>
+      <td>5.2686</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>persistence</td>
+      <td>Sudeste</td>
+      <td>5.7333</td>
+      <td>1.0712</td>
+      <td>3.7761</td>
+      <td>0.6051</td>
+      <td>-0.7346</td>
+      <td>0.2193</td>
+      <td>16.9699</td>
+      <td>3.2112</td>
+      <td>5.4386</td>
+      <td>6.0197</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>persistence</td>
       <td>Sul</td>
-      <td>8.5931</td>
-      <td>0.0000</td>
-      <td>5.7307</td>
-      <td>0.0000</td>
-      <td>-1.0419</td>
-      <td>0.0000</td>
-      <td>27.8629</td>
-      <td>0.0000</td>
-      <td>8.5931</td>
-      <td>8.5931</td>
+      <td>7.4682</td>
+      <td>0.9041</td>
+      <td>5.4828</td>
+      <td>1.2382</td>
+      <td>-1.5865</td>
+      <td>2.3297</td>
+      <td>30.6132</td>
+      <td>3.4141</td>
+      <td>7.1959</td>
+      <td>7.7500</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>tcn</td>
+      <td>Centro-Oeste</td>
+      <td>2.8567</td>
+      <td>0.7320</td>
+      <td>2.2227</td>
+      <td>0.6046</td>
+      <td>0.6695</td>
+      <td>0.1119</td>
+      <td>8.8479</td>
+      <td>2.2841</td>
+      <td>2.5897</td>
+      <td>3.0962</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>tcn</td>
+      <td>Nordeste</td>
+      <td>1.4985</td>
+      <td>0.6650</td>
+      <td>1.2994</td>
+      <td>0.6851</td>
+      <td>-2.8142</td>
+      <td>6.4469</td>
+      <td>4.7762</td>
+      <td>2.3430</td>
+      <td>1.3045</td>
+      <td>1.7128</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>tcn</td>
+      <td>Norte</td>
+      <td>1.7534</td>
+      <td>0.7629</td>
+      <td>1.3227</td>
+      <td>0.5902</td>
+      <td>0.5853</td>
+      <td>0.1492</td>
+      <td>4.8262</td>
+      <td>2.0421</td>
+      <td>1.5253</td>
+      <td>1.9780</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>tcn</td>
+      <td>Sudeste</td>
+      <td>2.5560</td>
+      <td>0.4963</td>
+      <td>1.9527</td>
+      <td>0.4057</td>
+      <td>0.6314</td>
+      <td>0.1508</td>
+      <td>9.1587</td>
+      <td>2.2318</td>
+      <td>2.4282</td>
+      <td>2.6729</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>tcn</td>
+      <td>Sul</td>
+      <td>3.8411</td>
+      <td>1.7868</td>
+      <td>3.0247</td>
+      <td>1.5600</td>
+      <td>-0.2134</td>
+      <td>2.3947</td>
+      <td>18.4984</td>
+      <td>6.3248</td>
+      <td>3.3305</td>
+      <td>4.4344</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>tft</td>
+      <td>Centro-Oeste</td>
+      <td>3.7514</td>
+      <td>0.0451</td>
+      <td>3.1066</td>
+      <td>0.0433</td>
+      <td>0.1073</td>
+      <td>0.0167</td>
+      <td>14.3778</td>
+      <td>0.1847</td>
+      <td>3.7178</td>
+      <td>3.7844</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>tft</td>
+      <td>Norte</td>
+      <td>2.9213</td>
+      <td>0.0276</td>
+      <td>2.4288</td>
+      <td>0.0191</td>
+      <td>-0.1127</td>
+      <td>0.0244</td>
+      <td>8.7088</td>
+      <td>0.0627</td>
+      <td>2.9013</td>
+      <td>2.9401</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>tft</td>
+      <td>Sudeste</td>
+      <td>4.3719</td>
+      <td>0.1410</td>
+      <td>3.5638</td>
+      <td>0.1267</td>
+      <td>0.1684</td>
+      <td>0.0448</td>
+      <td>17.7686</td>
+      <td>0.5600</td>
+      <td>4.2580</td>
+      <td>4.4685</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>tft</td>
+      <td>Sul</td>
+      <td>4.3403</td>
+      <td>0.1097</td>
+      <td>3.4624</td>
+      <td>0.0883</td>
+      <td>0.4790</td>
+      <td>0.0264</td>
+      <td>18.5784</td>
+      <td>0.4890</td>
+      <td>4.2625</td>
+      <td>4.4131</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>transformer</td>
+      <td>Centro-Oeste</td>
+      <td>2.1591</td>
+      <td>0.1180</td>
+      <td>1.6625</td>
+      <td>0.0916</td>
+      <td>0.7037</td>
+      <td>0.0305</td>
+      <td>7.8132</td>
+      <td>0.3846</td>
+      <td>2.0677</td>
+      <td>2.2457</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>transformer</td>
+      <td>Norte</td>
+      <td>1.9671</td>
+      <td>1.0935</td>
+      <td>1.5090</td>
+      <td>0.9012</td>
+      <td>0.2911</td>
+      <td>0.4411</td>
+      <td>5.5621</td>
+      <td>3.2801</td>
+      <td>1.5546</td>
+      <td>2.3315</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>transformer</td>
+      <td>Sudeste</td>
+      <td>3.4354</td>
+      <td>0.4577</td>
+      <td>2.6239</td>
+      <td>0.3605</td>
+      <td>0.4806</td>
+      <td>0.1264</td>
+      <td>13.2147</td>
+      <td>1.7897</td>
+      <td>3.1072</td>
+      <td>3.7431</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>transformer</td>
+      <td>Sul</td>
+      <td>3.6064</td>
+      <td>0.5691</td>
+      <td>2.8316</td>
+      <td>0.4636</td>
+      <td>0.6334</td>
+      <td>0.1117</td>
+      <td>15.7562</td>
+      <td>2.6643</td>
+      <td>3.1791</td>
+      <td>4.0244</td>
     </tr>
   </tbody>
 </table>
@@ -1346,14 +1884,18 @@ errores brutos.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_rmse_bars</span><span class="p">(</span><span class="n">tbl</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">tbl</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tabla vacía — corre el benchmark.&quot;</span><span class="p">);</span> <span class="k">return</span> <span class="kc">None</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tabla vacia -- corre el benchmark.&quot;</span><span class="p">);</span> <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">_partial</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;transformer&quot;</span><span class="p">,</span> <span class="s2">&quot;tft&quot;</span><span class="p">}</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
     <span class="n">pivot</span> <span class="o">=</span> <span class="n">tbl</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;horizon&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;rmse_mean&quot;</span><span class="p">)</span>
-    <span class="n">err</span> <span class="o">=</span> <span class="n">tbl</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;horizon&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;rmse_std&quot;</span><span class="p">)</span>
+    <span class="n">err</span>   <span class="o">=</span> <span class="n">tbl</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;horizon&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;rmse_std&quot;</span><span class="p">)</span>
     <span class="n">pivot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">err</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">l</span><span class="si">}</span><span class="s2"> (*)&quot;</span> <span class="k">if</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">_partial</span> <span class="k">else</span> <span class="n">l</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;RMSE (°C)&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Horizonte (h)&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;RMSE por modelo × horizonte (media ± std entre semillas)&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;RMSE por modelo x horizonte (media +/- std entre semillas)</span><span class="se">\n</span><span class="s2">&quot;</span>
+                 <span class="s2">&quot;(*) cobertura parcial: transformer (9 est.) y tft (4 est.), sampling GPU&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
     <span class="n">out</span> <span class="o">=</span> <span class="n">FIG_DIR</span> <span class="o">/</span> <span class="s2">&quot;01_rmse_modelo_x_horizonte.png&quot;</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">120</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
@@ -1365,8 +1907,8 @@ errores brutos.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/72265bbca88f8dee6948cab974b8b446e8808d95c4abe470d9ff05ee0ea88c49.png" src="../../_images/72265bbca88f8dee6948cab974b8b446e8808d95c4abe470d9ff05ee0ea88c49.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\juana\proyecto-final-deep\results\figures\benchmark_final\01_rmse_modelo_x_horizonte.png
+<img alt="../../_images/189b8d9fbcf2395d3ef2f1a55001b013dda84f071dfa89d55e3b2dd526fbbd7a.png" src="../../_images/189b8d9fbcf2395d3ef2f1a55001b013dda84f071dfa89d55e3b2dd526fbbd7a.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\sergi\Proyecto-final-Deep-learning\results\figures\benchmark_final\01_rmse_modelo_x_horizonte.png
 </pre></div>
 </div>
 </div>
@@ -1394,8 +1936,8 @@ errores brutos.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/80d5a28fb9f1a2a4edd4bef6c537d053d354cbaa976ae06b7416575950a1925c.png" src="../../_images/80d5a28fb9f1a2a4edd4bef6c537d053d354cbaa976ae06b7416575950a1925c.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\juana\proyecto-final-deep\results\figures\benchmark_final\02_heatmap_modelo_x_region.png
+<img alt="../../_images/9a6916c00b4282689d1d6b795879af402c76a7650c6f0482cd1127af31ea205c.png" src="../../_images/9a6916c00b4282689d1d6b795879af402c76a7650c6f0482cd1127af31ea205c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\sergi\Proyecto-final-Deep-learning\results\figures\benchmark_final\02_heatmap_modelo_x_region.png
 </pre></div>
 </div>
 </div>
@@ -1420,7 +1962,9 @@ errores brutos.</p>
     <span class="n">df</span><span class="p">[</span><span class="s2">&quot;medal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;rank&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">_emoji</span><span class="p">)</span>
     <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;medal&quot;</span><span class="p">,</span> <span class="s2">&quot;rank&quot;</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="s2">&quot;rmse_mean&quot;</span><span class="p">,</span> <span class="s2">&quot;rmse_std&quot;</span><span class="p">,</span>
             <span class="s2">&quot;rmse_ci_lo&quot;</span><span class="p">,</span> <span class="s2">&quot;rmse_ci_hi&quot;</span><span class="p">,</span> <span class="s2">&quot;mae_mean&quot;</span><span class="p">,</span> <span class="s2">&quot;r2_mean&quot;</span><span class="p">,</span> <span class="s2">&quot;smape_mean&quot;</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
+    <span class="k">if</span> <span class="s2">&quot;n_stations&quot;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">cols</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;n_stations&quot;</span><span class="p">,</span> <span class="s2">&quot;coverage&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">df</span><span class="p">[[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]]</span>
 
 
 <span class="n">RANK</span> <span class="o">=</span> <span class="n">ranking_table</span><span class="p">(</span><span class="n">TBL_MODEL</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">TBL_MODEL</span><span class="o">.</span><span class="n">empty</span> <span class="k">else</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
@@ -1459,6 +2003,8 @@ errores brutos.</p>
       <th>mae_mean</th>
       <th>r2_mean</th>
       <th>smape_mean</th>
+      <th>n_stations</th>
+      <th>coverage</th>
     </tr>
   </thead>
   <tbody>
@@ -1466,53 +2012,260 @@ errores brutos.</p>
       <th>0</th>
       <td>🥇</td>
       <td>1</td>
-      <td>gru</td>
-      <td>2.1602</td>
-      <td>0.3515</td>
-      <td>2.0207</td>
-      <td>2.3047</td>
-      <td>1.6419</td>
-      <td>0.7260</td>
-      <td>7.8473</td>
+      <td>transformer</td>
+      <td>2.3553</td>
+      <td>1.1189</td>
+      <td>2.0381</td>
+      <td>2.6601</td>
+      <td>1.8138</td>
+      <td>0.4170</td>
+      <td>7.9266</td>
+      <td>9</td>
+      <td>parcial</td>
     </tr>
     <tr>
       <th>1</th>
       <td>🥈</td>
       <td>2</td>
-      <td>lstm</td>
-      <td>2.1789</td>
-      <td>0.3774</td>
-      <td>2.0251</td>
-      <td>2.3372</td>
-      <td>1.6433</td>
-      <td>0.7226</td>
-      <td>7.8556</td>
+      <td>tcn</td>
+      <td>2.4943</td>
+      <td>1.2768</td>
+      <td>2.3224</td>
+      <td>2.6645</td>
+      <td>1.9566</td>
+      <td>-0.0945</td>
+      <td>9.2284</td>
+      <td>36</td>
+      <td>completo</td>
     </tr>
     <tr>
       <th>2</th>
       <td>🥉</td>
       <td>3</td>
-      <td>nbeats</td>
-      <td>3.8795</td>
-      <td>0.9579</td>
-      <td>3.4897</td>
-      <td>4.2627</td>
-      <td>3.0915</td>
-      <td>0.2026</td>
-      <td>14.7702</td>
+      <td>lstm</td>
+      <td>2.7919</td>
+      <td>1.3980</td>
+      <td>2.6117</td>
+      <td>2.9653</td>
+      <td>2.2327</td>
+      <td>-0.2942</td>
+      <td>10.3966</td>
+      <td>36</td>
+      <td>completo</td>
     </tr>
     <tr>
       <th>3</th>
       <td></td>
       <td>4</td>
+      <td>gru</td>
+      <td>2.8578</td>
+      <td>1.4606</td>
+      <td>2.6602</td>
+      <td>3.0455</td>
+      <td>2.3057</td>
+      <td>-0.6328</td>
+      <td>10.6823</td>
+      <td>36</td>
+      <td>completo</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td></td>
+      <td>5</td>
+      <td>tft</td>
+      <td>3.8462</td>
+      <td>0.6073</td>
+      <td>3.5967</td>
+      <td>4.0860</td>
+      <td>3.1404</td>
+      <td>0.1605</td>
+      <td>14.8584</td>
+      <td>4</td>
+      <td>parcial</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td></td>
+      <td>6</td>
+      <td>nbeats</td>
+      <td>4.1183</td>
+      <td>2.0340</td>
+      <td>3.8482</td>
+      <td>4.3807</td>
+      <td>3.3854</td>
+      <td>-0.9478</td>
+      <td>15.7252</td>
+      <td>36</td>
+      <td>completo</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td></td>
+      <td>7</td>
       <td>persistence</td>
-      <td>6.3269</td>
-      <td>1.5844</td>
-      <td>5.7145</td>
-      <td>6.9728</td>
-      <td>4.0425</td>
-      <td>-1.1333</td>
-      <td>18.2085</td>
+      <td>5.7184</td>
+      <td>2.1750</td>
+      <td>5.4188</td>
+      <td>6.0027</td>
+      <td>4.0847</td>
+      <td>-2.6350</td>
+      <td>17.8560</td>
+      <td>36</td>
+      <td>completo</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="ranking-comparativo-en-estaciones-comunes-todos-los-modelos">
+<h3>Ranking comparativo en estaciones comunes (todos los modelos)<a class="headerlink" href="#ranking-comparativo-en-estaciones-comunes-todos-los-modelos" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ranking apples-to-apples: 4 estaciones con datos de los 7 modelos</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">PER_RUN</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+    <span class="n">_pr_c7</span> <span class="o">=</span> <span class="n">PER_RUN</span><span class="p">[</span><span class="n">PER_RUN</span><span class="p">[</span><span class="s2">&quot;station&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">COMMON_STATIONS_ALL7</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">TBL_MODEL_COMMON7</span> <span class="o">=</span> <span class="n">_agg_mean_std</span><span class="p">(</span><span class="n">_pr_c7</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">TBL_MODEL_COMMON7</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="n">TBL_MODEL_COMMON7</span> <span class="o">=</span> <span class="n">TBL_MODEL_COMMON7</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;rmse_mean&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">TBL_MODEL_COMMON7</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">TAB_DIR</span> <span class="o">/</span> <span class="s2">&quot;tabla_modelo_comun7.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">RANK_COMMON7</span> <span class="o">=</span> <span class="n">ranking_table</span><span class="p">(</span><span class="n">TBL_MODEL_COMMON7</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">TBL_MODEL_COMMON7</span><span class="o">.</span><span class="n">empty</span> <span class="k">else</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">RANK_COMMON7</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="n">RANK_COMMON7</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">TAB_DIR</span> <span class="o">/</span> <span class="s2">&quot;ranking_comparativo_7modelos.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">TBL_MODEL_COMMON7</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="n">RANK_COMMON7</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ranking sobre estaciones comunes a los 7 modelos: </span><span class="si">{</span><span class="n">COMMON_STATIONS_ALL7</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">RANK_COMMON7</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ranking sobre estaciones comunes a los 7 modelos: [&#39;A001&#39;, &#39;A101&#39;, &#39;A701&#39;, &#39;A801&#39;]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>medal</th>
+      <th>rank</th>
+      <th>model</th>
+      <th>rmse_mean</th>
+      <th>rmse_std</th>
+      <th>rmse_ci_lo</th>
+      <th>rmse_ci_hi</th>
+      <th>mae_mean</th>
+      <th>r2_mean</th>
+      <th>smape_mean</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>🥇</td>
+      <td>1</td>
+      <td>tcn</td>
+      <td>2.5085</td>
+      <td>0.6858</td>
+      <td>2.2421</td>
+      <td>2.7950</td>
+      <td>1.9388</td>
+      <td>0.6476</td>
+      <td>9.3878</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>🥈</td>
+      <td>2</td>
+      <td>gru</td>
+      <td>2.6410</td>
+      <td>0.7525</td>
+      <td>2.3430</td>
+      <td>2.9441</td>
+      <td>2.0408</td>
+      <td>0.6085</td>
+      <td>9.8975</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>🥉</td>
+      <td>3</td>
+      <td>lstm</td>
+      <td>2.6770</td>
+      <td>0.7843</td>
+      <td>2.3682</td>
+      <td>2.9969</td>
+      <td>2.0727</td>
+      <td>0.6059</td>
+      <td>10.0755</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td></td>
+      <td>4</td>
+      <td>transformer</td>
+      <td>2.8528</td>
+      <td>0.7686</td>
+      <td>2.5566</td>
+      <td>3.1663</td>
+      <td>2.1952</td>
+      <td>0.5450</td>
+      <td>10.6849</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td></td>
+      <td>5</td>
+      <td>nbeats</td>
+      <td>3.8351</td>
+      <td>1.1165</td>
+      <td>3.3906</td>
+      <td>4.2730</td>
+      <td>3.0649</td>
+      <td>0.2356</td>
+      <td>14.9846</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td></td>
+      <td>6</td>
+      <td>tft</td>
+      <td>3.8462</td>
+      <td>0.6073</td>
+      <td>3.5967</td>
+      <td>4.0860</td>
+      <td>3.1404</td>
+      <td>0.1605</td>
+      <td>14.8584</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td></td>
+      <td>7</td>
+      <td>persistence</td>
+      <td>6.1978</td>
+      <td>1.8239</td>
+      <td>5.4895</td>
+      <td>6.9331</td>
+      <td>4.0006</td>
+      <td>-0.9990</td>
+      <td>18.0959</td>
     </tr>
   </tbody>
 </table>
@@ -1573,27 +2326,45 @@ errores brutos.</p>
   <tbody>
     <tr>
       <th>gru</th>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>3</td>
+      <td>4</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>lstm</th>
-      <td>2</td>
-      <td>2</td>
-      <td>2</td>
+      <td>4</td>
+      <td>3</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>nbeats</th>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>persistence</th>
-      <td>4</td>
-      <td>4</td>
-      <td>4</td>
+      <td>7</td>
+      <td>7</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>tcn</th>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>tft</th>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>transformer</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -1676,6 +2447,21 @@ errores brutos.</p>
     </tr>
     <tr>
       <th>persistence</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>tcn</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>tft</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>transformer</th>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -1762,9 +2548,15 @@ puntos</p></li>
     <span class="k">return</span> <span class="n">out</span>
 
 
-<span class="n">ERR_PANEL</span> <span class="o">=</span> <span class="n">errors_panel_per_seed</span><span class="p">(</span><span class="n">PER_RUN</span><span class="p">)</span>
+<span class="c1"># Tests estadisticos sobre las 4 estaciones comunes a los 7 modelos</span>
+<span class="c1"># para garantizar comparacion justa (mismas estaciones para todos los modelos).</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tests estadisticos sobre 4 estaciones comunes: </span><span class="si">{</span><span class="n">COMMON_STATIONS_ALL7</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">_PER_RUN_STATS</span> <span class="o">=</span> <span class="p">(</span><span class="n">PER_RUN</span><span class="p">[</span><span class="n">PER_RUN</span><span class="p">[</span><span class="s2">&quot;station&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">COMMON_STATIONS_ALL7</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                  <span class="k">if</span> <span class="ow">not</span> <span class="n">PER_RUN</span><span class="o">.</span><span class="n">empty</span> <span class="k">else</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">())</span>
+<span class="n">ERR_PANEL</span> <span class="o">=</span> <span class="n">errors_panel_per_seed</span><span class="p">(</span><span class="n">_PER_RUN_STATS</span><span class="p">)</span>
 <span class="n">ERR_PANEL_FRIEDMAN</span> <span class="o">=</span> <span class="n">panel_for_scikit_posthocs</span><span class="p">(</span><span class="n">ERR_PANEL</span><span class="p">)</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">ERR_PANEL</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Panel: </span><span class="si">{</span><span class="n">ERR_PANEL</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> datasets x </span><span class="si">{</span><span class="n">ERR_PANEL</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> modelos&quot;</span><span class="p">)</span>
     <span class="n">SHAPIRO</span> <span class="o">=</span> <span class="n">shapiro_per_model</span><span class="p">(</span><span class="n">ERR_PANEL</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">ALPHA</span><span class="p">)</span>
     <span class="n">SHAPIRO</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">TAB_DIR</span> <span class="o">/</span> <span class="s2">&quot;shapiro_por_modelo.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
@@ -1774,6 +2566,10 @@ puntos</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tests estadisticos sobre 4 estaciones comunes: [&#39;A001&#39;, &#39;A101&#39;, &#39;A701&#39;, &#39;A801&#39;]
+  Panel: 24 datasets x 7 modelos
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1802,29 +2598,50 @@ puntos</p></li>
     <tr>
       <th>0</th>
       <td>gru</td>
-      <td>0.748139</td>
-      <td>0.000047</td>
+      <td>0.863115</td>
+      <td>0.003867</td>
       <td>False</td>
     </tr>
     <tr>
       <th>1</th>
       <td>lstm</td>
-      <td>0.762453</td>
-      <td>0.000076</td>
+      <td>0.843820</td>
+      <td>0.001682</td>
       <td>False</td>
     </tr>
     <tr>
       <th>2</th>
       <td>nbeats</td>
-      <td>0.865199</td>
-      <td>0.004242</td>
+      <td>0.900827</td>
+      <td>0.022411</td>
       <td>False</td>
     </tr>
     <tr>
       <th>3</th>
       <td>persistence</td>
-      <td>0.846888</td>
-      <td>0.001915</td>
+      <td>0.842587</td>
+      <td>0.001597</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>tcn</td>
+      <td>0.842724</td>
+      <td>0.001607</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>tft</td>
+      <td>0.837640</td>
+      <td>0.001300</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>transformer</td>
+      <td>0.853060</td>
+      <td>0.002493</td>
       <td>False</td>
     </tr>
   </tbody>
@@ -1885,36 +2702,81 @@ malos mínimos locales).</p>
       <th>lstm</th>
       <th>nbeats</th>
       <th>persistence</th>
+      <th>tcn</th>
+      <th>tft</th>
+      <th>transformer</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>gru</th>
-      <td>1.000000</td>
-      <td>0.071397</td>
-      <td>0.000018</td>
-      <td>0.000018</td>
+      <td>1.000000e+00</td>
+      <td>1.208402e-01</td>
+      <td>1.192093e-07</td>
+      <td>1.192093e-07</td>
+      <td>5.328655e-05</td>
+      <td>1.192093e-07</td>
+      <td>7.629395e-05</td>
     </tr>
     <tr>
       <th>lstm</th>
-      <td>0.071397</td>
-      <td>1.000000</td>
-      <td>0.000018</td>
-      <td>0.000018</td>
+      <td>1.208402e-01</td>
+      <td>1.000000e+00</td>
+      <td>1.192093e-07</td>
+      <td>1.192093e-07</td>
+      <td>3.576279e-07</td>
+      <td>1.192093e-07</td>
+      <td>1.754761e-04</td>
     </tr>
     <tr>
       <th>nbeats</th>
-      <td>0.000018</td>
-      <td>0.000018</td>
-      <td>1.000000</td>
-      <td>0.000018</td>
+      <td>1.192093e-07</td>
+      <td>1.192093e-07</td>
+      <td>1.000000e+00</td>
+      <td>1.192093e-07</td>
+      <td>1.192093e-07</td>
+      <td>5.270591e-01</td>
+      <td>1.192093e-07</td>
     </tr>
     <tr>
       <th>persistence</th>
-      <td>0.000018</td>
-      <td>0.000018</td>
-      <td>0.000018</td>
-      <td>1.000000</td>
+      <td>1.192093e-07</td>
+      <td>1.192093e-07</td>
+      <td>1.192093e-07</td>
+      <td>1.000000e+00</td>
+      <td>1.192093e-07</td>
+      <td>1.192093e-07</td>
+      <td>1.192093e-07</td>
+    </tr>
+    <tr>
+      <th>tcn</th>
+      <td>5.328655e-05</td>
+      <td>3.576279e-07</td>
+      <td>1.192093e-07</td>
+      <td>1.192093e-07</td>
+      <td>1.000000e+00</td>
+      <td>1.192093e-07</td>
+      <td>1.192093e-07</td>
+    </tr>
+    <tr>
+      <th>tft</th>
+      <td>1.192093e-07</td>
+      <td>1.192093e-07</td>
+      <td>5.270591e-01</td>
+      <td>1.192093e-07</td>
+      <td>1.192093e-07</td>
+      <td>1.000000e+00</td>
+      <td>1.192093e-07</td>
+    </tr>
+    <tr>
+      <th>transformer</th>
+      <td>7.629395e-05</td>
+      <td>1.754761e-04</td>
+      <td>1.192093e-07</td>
+      <td>1.192093e-07</td>
+      <td>1.192093e-07</td>
+      <td>1.192093e-07</td>
+      <td>1.000000e+00</td>
     </tr>
   </tbody>
 </table>
@@ -1940,8 +2802,8 @@ malos mínimos locales).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03af3a0e1ae261a276b08985d5329602ec605dfa2dcebfc6da2b27d85f08b76a.png" src="../../_images/03af3a0e1ae261a276b08985d5329602ec605dfa2dcebfc6da2b27d85f08b76a.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\juana\proyecto-final-deep\results\figures\benchmark_final\04_wilcoxon_heatmap.png
+<img alt="../../_images/a278dd855dceadb98d106caa719c0804f0d73a7be13998f2485a6c150a2b805d.png" src="../../_images/a278dd855dceadb98d106caa719c0804f0d73a7be13998f2485a6c150a2b805d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\sergi\Proyecto-final-Deep-learning\results\figures\benchmark_final\04_wilcoxon_heatmap.png
 </pre></div>
 </div>
 </div>
@@ -1967,10 +2829,10 @@ malos mínimos locales).</p>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
   &quot;friedman&quot;: {
-    &quot;stat&quot;: 64.80000000000001,
-    &quot;pvalue&quot;: 5.5352820929525214e-14,
+    &quot;stat&quot;: 133.80357142857144,
+    &quot;pvalue&quot;: 2.031188430138598e-26,
     &quot;n_datasets&quot;: 24,
-    &quot;n_models&quot;: 4
+    &quot;n_models&quot;: 7
   }
 }
 </pre></div>
@@ -2024,36 +2886,81 @@ malos mínimos locales).</p>
       <th>lstm</th>
       <th>nbeats</th>
       <th>persistence</th>
+      <th>tcn</th>
+      <th>tft</th>
+      <th>transformer</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>gru</th>
       <td>1.000000e+00</td>
-      <td>1.000000e+00</td>
-      <td>0.000332</td>
-      <td>1.182018e-10</td>
+      <td>9.848702e-01</td>
+      <td>1.580138e-05</td>
+      <td>5.454526e-13</td>
+      <td>6.359760e-01</td>
+      <td>8.939292e-07</td>
+      <td>0.169424</td>
     </tr>
     <tr>
       <th>lstm</th>
+      <td>9.848702e-01</td>
       <td>1.000000e+00</td>
-      <td>1.000000e+00</td>
-      <td>0.000332</td>
-      <td>1.182018e-10</td>
+      <td>6.808450e-04</td>
+      <td>1.976707e-10</td>
+      <td>1.694237e-01</td>
+      <td>5.963946e-05</td>
+      <td>0.635976</td>
     </tr>
     <tr>
       <th>nbeats</th>
-      <td>3.321288e-04</td>
-      <td>3.321288e-04</td>
-      <td>1.000000</td>
-      <td>3.664844e-02</td>
+      <td>1.580138e-05</td>
+      <td>6.808450e-04</td>
+      <td>1.000000e+00</td>
+      <td>1.052182e-01</td>
+      <td>7.813732e-10</td>
+      <td>9.983408e-01</td>
+      <td>0.169424</td>
     </tr>
     <tr>
       <th>persistence</th>
-      <td>1.182018e-10</td>
-      <td>1.182018e-10</td>
-      <td>0.036648</td>
+      <td>5.454526e-13</td>
+      <td>1.976707e-10</td>
+      <td>1.052182e-01</td>
       <td>1.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>3.301077e-01</td>
+      <td>0.000006</td>
+    </tr>
+    <tr>
+      <th>tcn</th>
+      <td>6.359760e-01</td>
+      <td>1.694237e-01</td>
+      <td>7.813732e-10</td>
+      <td>0.000000e+00</td>
+      <td>1.000000e+00</td>
+      <td>1.832223e-11</td>
+      <td>0.000681</td>
+    </tr>
+    <tr>
+      <th>tft</th>
+      <td>8.939292e-07</td>
+      <td>5.963946e-05</td>
+      <td>9.983408e-01</td>
+      <td>3.301077e-01</td>
+      <td>1.832223e-11</td>
+      <td>1.000000e+00</td>
+      <td>0.042173</td>
+    </tr>
+    <tr>
+      <th>transformer</th>
+      <td>1.694237e-01</td>
+      <td>6.359760e-01</td>
+      <td>1.694237e-01</td>
+      <td>5.565048e-06</td>
+      <td>6.808450e-04</td>
+      <td>4.217266e-02</td>
+      <td>1.000000</td>
     </tr>
   </tbody>
 </table>
@@ -2091,8 +2998,8 @@ malos mínimos locales).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b592b21f7ed03b002bd8d04ae3f257fe06a4c34df9a3c9e286d79270b2e7647e.png" src="../../_images/b592b21f7ed03b002bd8d04ae3f257fe06a4c34df9a3c9e286d79270b2e7647e.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\juana\proyecto-final-deep\results\figures\benchmark_final\05_cd_diagram_nemenyi.png
+<img alt="../../_images/b298349b3049c9c42f9860a13cc3e665588e9b8a9614023ec6f0085440951469.png" src="../../_images/b298349b3049c9c42f9860a13cc3e665588e9b8a9614023ec6f0085440951469.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\sergi\Proyecto-final-Deep-learning\results\figures\benchmark_final\05_cd_diagram_nemenyi.png
 </pre></div>
 </div>
 </div>
@@ -2103,15 +3010,16 @@ malos mínimos locales).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">diebold_mariano_matrix</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Matriz simétrica de p-valores DM (HLN) entre pares de modelos.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Matriz simetrica de p-valores DM (HLN) entre pares de modelos.</span>
 
-<span class="sd">    Para cada par (m1, m2), promedia los p-valores sobre runs pareados</span>
-<span class="sd">    (misma station, mismo seed, mismo horizonte).</span>
+<span class="sd">    Filtrado a COMMON_STATIONS_ALL7 para comparacion justa entre los 7 modelos.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">PRED_LONG</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span> <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="n">_pred_dm</span> <span class="o">=</span> <span class="n">PRED_LONG</span><span class="p">[</span><span class="n">PRED_LONG</span><span class="p">[</span><span class="s2">&quot;station&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">COMMON_STATIONS_ALL7</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DM test sobre estaciones comunes: </span><span class="si">{</span><span class="n">COMMON_STATIONS_ALL7</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">cfg_dm</span> <span class="o">=</span> <span class="n">CONFIG</span><span class="p">[</span><span class="s2">&quot;stats&quot;</span><span class="p">][</span><span class="s2">&quot;diebold_mariano&quot;</span><span class="p">]</span>
     <span class="n">p_table</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="n">keyed</span> <span class="o">=</span> <span class="n">PRED_LONG</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="s2">&quot;station&quot;</span><span class="p">,</span> <span class="s2">&quot;seed&quot;</span><span class="p">,</span> <span class="s2">&quot;horizon&quot;</span><span class="p">])</span>
+    <span class="n">keyed</span> <span class="o">=</span> <span class="n">_pred_dm</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="s2">&quot;station&quot;</span><span class="p">,</span> <span class="s2">&quot;seed&quot;</span><span class="p">,</span> <span class="s2">&quot;horizon&quot;</span><span class="p">])</span>
     <span class="n">keys</span> <span class="o">=</span> <span class="n">keyed</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
     <span class="n">by_run</span> <span class="o">=</span> <span class="p">{(</span><span class="n">s</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span> <span class="p">{}</span> <span class="k">for</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">}</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">keyed</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
@@ -2143,6 +3051,9 @@ malos mínimos locales).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DM test sobre estaciones comunes: [&#39;A001&#39;, &#39;A101&#39;, &#39;A701&#39;, &#39;A801&#39;]
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2165,35 +3076,80 @@ malos mínimos locales).</p>
       <th>lstm</th>
       <th>nbeats</th>
       <th>persistence</th>
+      <th>tcn</th>
+      <th>tft</th>
+      <th>transformer</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>gru</th>
       <td>1.000000e+00</td>
-      <td>1.741267e-01</td>
+      <td>2.451372e-13</td>
       <td>0.000000e+00</td>
-      <td>5.551115e-16</td>
+      <td>0.000000e+00</td>
+      <td>0.0</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
     </tr>
     <tr>
       <th>lstm</th>
-      <td>1.741267e-01</td>
+      <td>2.451372e-13</td>
       <td>1.000000e+00</td>
       <td>0.000000e+00</td>
-      <td>4.440892e-16</td>
+      <td>0.000000e+00</td>
+      <td>0.0</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
     </tr>
     <tr>
       <th>nbeats</th>
       <td>0.000000e+00</td>
       <td>0.000000e+00</td>
       <td>1.000000e+00</td>
-      <td>2.270659e-08</td>
+      <td>5.051071e-12</td>
+      <td>0.0</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
     </tr>
     <tr>
       <th>persistence</th>
-      <td>5.551115e-16</td>
-      <td>4.440892e-16</td>
-      <td>2.270659e-08</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>5.051071e-12</td>
+      <td>1.000000e+00</td>
+      <td>0.0</td>
+      <td>1.568134e-07</td>
+      <td>1.110223e-16</td>
+    </tr>
+    <tr>
+      <th>tcn</th>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>1.0</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>tft</th>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>1.568134e-07</td>
+      <td>0.0</td>
+      <td>1.000000e+00</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>transformer</th>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>1.110223e-16</td>
+      <td>0.0</td>
+      <td>0.000000e+00</td>
       <td>1.000000e+00</td>
     </tr>
   </tbody>
@@ -2208,8 +3164,8 @@ malos mínimos locales).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fc11477f7ba118e8992b8d199c91fd825c078805e11bcea044acff59aff84e7d.png" src="../../_images/fc11477f7ba118e8992b8d199c91fd825c078805e11bcea044acff59aff84e7d.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\juana\proyecto-final-deep\results\figures\benchmark_final\06_dm_heatmap.png
+<img alt="../../_images/a4f798ddbd252ff9539d6239050c9b413c3d099831e000dd4e4dda4300ed0787.png" src="../../_images/a4f798ddbd252ff9539d6239050c9b413c3d099831e000dd4e4dda4300ed0787.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\sergi\Proyecto-final-Deep-learning\results\figures\benchmark_final\06_dm_heatmap.png
 </pre></div>
 </div>
 </div>
@@ -2229,7 +3185,7 @@ malos mínimos locales).</p>
     <span class="k">return</span> <span class="n">out</span>
 
 
-<span class="n">BDS_MAX_N</span> <span class="o">=</span> <span class="mi">1500</span>
+<span class="n">BDS_MAX_N</span> <span class="o">=</span> <span class="mi">500</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">bds_test_limited</span><span class="p">(</span><span class="n">residuals</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">max_n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">BDS_MAX_N</span><span class="p">,</span>
@@ -2310,9 +3266,9 @@ malos mínimos locales).</p>
       <td>gru</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>1.226220e-10</td>
-      <td>1500</td>
-      <td>205656</td>
+      <td>1.323291e-20</td>
+      <td>500</td>
+      <td>1819800</td>
       <td>BDS calculado sobre muestra determinística de ...</td>
     </tr>
     <tr>
@@ -2320,9 +3276,9 @@ malos mínimos locales).</p>
       <td>lstm</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>4.101996e-09</td>
-      <td>1500</td>
-      <td>205656</td>
+      <td>1.333452e-15</td>
+      <td>500</td>
+      <td>1819800</td>
       <td>BDS calculado sobre muestra determinística de ...</td>
     </tr>
     <tr>
@@ -2330,9 +3286,9 @@ malos mínimos locales).</p>
       <td>nbeats</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>1.190823e-30</td>
-      <td>1500</td>
-      <td>205656</td>
+      <td>1.069034e-20</td>
+      <td>500</td>
+      <td>1819800</td>
       <td>BDS calculado sobre muestra determinística de ...</td>
     </tr>
     <tr>
@@ -2340,9 +3296,39 @@ malos mínimos locales).</p>
       <td>persistence</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>2.118205e-32</td>
-      <td>1500</td>
-      <td>205656</td>
+      <td>1.043259e-10</td>
+      <td>500</td>
+      <td>1819800</td>
+      <td>BDS calculado sobre muestra determinística de ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>tcn</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>8.325412e-08</td>
+      <td>500</td>
+      <td>1819800</td>
+      <td>BDS calculado sobre muestra determinística de ...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>tft</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.708425e-01</td>
+      <td>500</td>
+      <td>202200</td>
+      <td>BDS calculado sobre muestra determinística de ...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>transformer</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.122869e-28</td>
+      <td>500</td>
+      <td>429675</td>
       <td>BDS calculado sobre muestra determinística de ...</td>
     </tr>
   </tbody>
@@ -2421,8 +3407,8 @@ malos mínimos locales).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eb41aaa45f3fce88460129c8c6544af3aeb1c69dbda98d1c97adf1ae98ef2c9a.png" src="../../_images/eb41aaa45f3fce88460129c8c6544af3aeb1c69dbda98d1c97adf1ae98ef2c9a.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\juana\proyecto-final-deep\results\figures\benchmark_final\07_pred_vs_truth_por_region.png
+<img alt="../../_images/f58db87668e580e3ce6bca10413eb0691a5f127e4a6b9c358c69b632c78595ea.png" src="../../_images/f58db87668e580e3ce6bca10413eb0691a5f127e4a6b9c358c69b632c78595ea.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\sergi\Proyecto-final-Deep-learning\results\figures\benchmark_final\07_pred_vs_truth_por_region.png
 </pre></div>
 </div>
 </div>
@@ -2463,8 +3449,8 @@ malos mínimos locales).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/aa705d00e8ab9b4d6a602095c7455b2c9e8a78f2b9b44c35c6deb9d110745f05.png" src="../../_images/aa705d00e8ab9b4d6a602095c7455b2c9e8a78f2b9b44c35c6deb9d110745f05.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\juana\proyecto-final-deep\results\figures\benchmark_final\08_error_distributions.png
+<img alt="../../_images/350b816f8d3afd9d0b743a681cd08a0030d2c9b6abb1a88742c34f0bb335c512.png" src="../../_images/350b816f8d3afd9d0b743a681cd08a0030d2c9b6abb1a88742c34f0bb335c512.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\sergi\Proyecto-final-Deep-learning\results\figures\benchmark_final\08_error_distributions.png
 </pre></div>
 </div>
 </div>
@@ -2528,143 +3514,143 @@ malos mínimos locales).</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>A701</td>
-      <td>404</td>
+      <td>A719</td>
+      <td>8138</td>
       <td>1</td>
-      <td>251.345697</td>
+      <td>367.374073</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>A801</td>
-      <td>933</td>
+      <td>A701</td>
+      <td>404</td>
       <td>1</td>
-      <td>181.712255</td>
+      <td>262.784113</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>A001</td>
-      <td>6840</td>
+      <td>A309</td>
+      <td>3240</td>
       <td>1</td>
-      <td>147.273640</td>
+      <td>246.294422</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>A701</td>
-      <td>405</td>
+      <td>A627</td>
+      <td>2450</td>
       <td>1</td>
-      <td>116.125034</td>
+      <td>234.482916</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>A801</td>
-      <td>961</td>
+      <td>A002</td>
+      <td>2878</td>
       <td>1</td>
-      <td>114.536388</td>
+      <td>233.277344</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>A701</td>
-      <td>2310</td>
+      <td>A018</td>
+      <td>7630</td>
       <td>1</td>
-      <td>105.276194</td>
+      <td>221.191357</td>
     </tr>
     <tr>
       <th>6</th>
       <td>A801</td>
-      <td>8074</td>
+      <td>933</td>
       <td>1</td>
-      <td>99.796059</td>
+      <td>191.412481</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>A001</td>
-      <td>7186</td>
+      <td>A210</td>
+      <td>8311</td>
       <td>1</td>
-      <td>97.025105</td>
+      <td>184.519291</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>A001</td>
-      <td>7673</td>
+      <td>A756</td>
+      <td>7915</td>
       <td>1</td>
-      <td>93.184872</td>
+      <td>182.031017</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>A101</td>
-      <td>2621</td>
+      <td>A815</td>
+      <td>547</td>
       <td>1</td>
-      <td>83.780378</td>
+      <td>170.172665</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>A101</td>
-      <td>2622</td>
+      <td>A756</td>
+      <td>287</td>
       <td>1</td>
-      <td>80.923262</td>
+      <td>167.725651</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>A101</td>
-      <td>6607</td>
+      <td>A719</td>
+      <td>578</td>
       <td>1</td>
-      <td>80.675632</td>
+      <td>164.638931</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>A701</td>
-      <td>8489</td>
+      <td>A756</td>
+      <td>1680</td>
       <td>1</td>
-      <td>17.826962</td>
+      <td>161.922062</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>A701</td>
-      <td>8490</td>
+      <td>A861</td>
+      <td>1829</td>
       <td>1</td>
-      <td>17.608955</td>
+      <td>155.042933</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>A801</td>
-      <td>1413</td>
+      <td>A719</td>
+      <td>1004</td>
       <td>1</td>
-      <td>17.516872</td>
+      <td>154.838932</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>A801</td>
-      <td>1315</td>
+      <td>A899</td>
+      <td>7228</td>
       <td>1</td>
-      <td>17.049694</td>
+      <td>153.779474</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>A801</td>
-      <td>1412</td>
+      <td>A861</td>
+      <td>4046</td>
       <td>1</td>
-      <td>17.038177</td>
+      <td>149.074942</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>A801</td>
-      <td>1316</td>
+      <td>A210</td>
+      <td>1705</td>
       <td>1</td>
-      <td>17.003986</td>
+      <td>145.193338</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>A701</td>
-      <td>8467</td>
+      <td>A018</td>
+      <td>7784</td>
       <td>1</td>
-      <td>16.924450</td>
+      <td>140.961817</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>A701</td>
-      <td>8491</td>
+      <td>A002</td>
+      <td>145</td>
       <td>1</td>
-      <td>16.765713</td>
+      <td>138.071812</td>
     </tr>
   </tbody>
 </table>
@@ -2675,6 +3661,66 @@ malos mínimos locales).</p>
 eventos meteorológicos atípicos (frentes fríos, <em>heat waves</em>, faltantes de
 radiación). Si los peores casos están <strong>dispersos</strong>, cada modelo falla en
 patrones distintos — buena evidencia para <em>ensemble</em>.</p>
+</section>
+</section>
+<section id="resumen-ejecutivo-y-conclusiones">
+<h2><strong>5. Resumen Ejecutivo y Conclusiones</strong><a class="headerlink" href="#resumen-ejecutivo-y-conclusiones" title="Link to this heading">#</a></h2>
+<section id="ranking-final-estaciones-comunes-a-los-7-modelos-a001-a101-a701-a801">
+<h3>Ranking final (estaciones comunes a los 7 modelos: A001, A101, A701, A801)<a class="headerlink" href="#ranking-final-estaciones-comunes-a-los-7-modelos-a001-a101-a701-a801" title="Link to this heading">#</a></h3>
+<p>El ranking comparativo justo —sobre las mismas 4 estaciones donde todos los modelos
+tienen predicciones— se muestra en la tabla <code class="docutils literal notranslate"><span class="pre">RANK_COMMON7</span></code> (sección
+“Ranking comparativo en estaciones comunes”).</p>
+</section>
+<section id="conclusiones-principales">
+<h3>Conclusiones principales<a class="headerlink" href="#conclusiones-principales" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Transformer</strong> obtiene el menor RMSE global, pero debe interpretarse con cautela:
+fue entrenado con <em>sampling</em> (9 estaciones, 10 epochs) por restricciones de GPU.
+La comparación en estaciones comunes permite una evaluación más rigurosa.</p></li>
+<li><p><strong>TCN</strong> es el mejor modelo a horizonte corto (24 h) y el segundo a mediano/largo plazo.
+Con 36 estaciones y 2 seeds completos, su ranking es el más robusto estadísticamente.</p></li>
+<li><p><strong>LSTM y GRU</strong> ofrecen desempeño similar, con LSTM ligeramente mejor en todas las métricas.</p></li>
+<li><p><strong>TFT y N-BEATS</strong> quedan rezagados. TFT con solo 4 estaciones no permite
+conclusiones definitivas. N-BEATS muestra alta varianza entre estaciones.</p></li>
+<li><p><strong>Persistence</strong> (baseline) es claramente superado por todos los modelos DL,
+validando el enfoque de aprendizaje profundo para este problema.</p></li>
+</ol>
+</section>
+<section id="caveats-sobre-cobertura-parcial">
+<h3>Caveats sobre cobertura parcial<a class="headerlink" href="#caveats-sobre-cobertura-parcial" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><strong>transformer</strong> y <strong>tft</strong>: entrenados con sampling (9/4 estaciones, 10 epochs)
+por restricciones de tiempo de GPU. Los resultados son <strong>preliminares</strong> para estos modelos.
+Para una comparación definitiva se requeriría entrenamiento completo sobre las 36 estaciones.</p>
+</div></blockquote>
+</section>
+<section id="archivos-de-resultados-generados">
+<h3>Archivos de resultados generados<a class="headerlink" href="#archivos-de-resultados-generados" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Archivo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">results/tables/benchmark_final/ranking_global.csv</span></code></p></td>
+<td><p>Ranking con todos los runs por modelo</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">results/tables/benchmark_final/ranking_comparativo_7modelos.csv</span></code></p></td>
+<td><p>Ranking justo (4 est. comunes)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">results/tables/benchmark_final/tabla_modelo_x_horizonte.csv</span></code></p></td>
+<td><p>RMSE por modelo y horizonte</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">results/stats/friedman_final.json</span></code></p></td>
+<td><p>Test de Friedman + post-hoc Nemenyi</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">results/tables/benchmark_final/diebold_mariano_pvalues.csv</span></code></p></td>
+<td><p>Matriz DM (est. comunes)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 </section>
 </section>
@@ -2692,7 +3738,7 @@ patrones distintos — buena evidencia para <em>ensemble</em>.</p>
         },
         kernelOptions: {
             name: "python3",
-            path: "./chapters\notebooks"
+            path: "./chapters/notebooks"
         },
         predefinedOutput: true
     }
@@ -2725,20 +3771,19 @@ patrones distintos — buena evidencia para <em>ensemble</em>.</p>
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item"><div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+  <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion-global-paths-e-imports">Configuración global, paths e imports</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-tabular"><strong>1. Comparación Tabular</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-resultados-desde-experiments">1.1 Carga de resultados desde <code class="docutils literal notranslate"><span class="pre">experiments/</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cobertura-de-experimentos-por-modelo">Cobertura de experimentos por modelo</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-y-bootstrap">1.2 Métricas y bootstrap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-1-por-modelo-horizonte">1.3 Tabla 1 — por (modelo × horizonte)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-2-agregada-por-modelo-promedio-sobre-horizontes">1.4 Tabla 2 — agregada por modelo (promedio sobre horizontes)</a></li>
@@ -2748,6 +3793,7 @@ patrones distintos — buena evidencia para <em>ensemble</em>.</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ranking-de-modelos"><strong>2. Ranking de Modelos</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ranking-principal">2.1 Ranking principal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ranking-comparativo-en-estaciones-comunes-todos-los-modelos">Ranking comparativo en estaciones comunes (todos los modelos)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ranking-por-horizonte-detecta-inversiones">2.2 Ranking por horizonte (detecta inversiones)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-trade-off-scatter-rmse-costo-y-frontera-de-pareto">2.3 Análisis trade-off — scatter RMSE × costo y frontera de Pareto</a></li>
 </ul>
@@ -2765,6 +3811,13 @@ patrones distintos — buena evidencia para <em>ensemble</em>.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion-vs-ground-truth-1-estacion-por-region">4.1 Predicción vs ground truth — 1 estación por región</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#errores-sistematicos-histograma-por-hora-del-dia-por-mes">4.2 Errores sistemáticos — histograma + por hora del día + por mes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#casos-dificiles">4.3 Casos difíciles</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen-ejecutivo-y-conclusiones"><strong>5. Resumen Ejecutivo y Conclusiones</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ranking-final-estaciones-comunes-a-los-7-modelos-a001-a101-a701-a801">Ranking final (estaciones comunes a los 7 modelos: A001, A101, A701, A801)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones-principales">Conclusiones principales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caveats-sobre-cobertura-parcial">Caveats sobre cobertura parcial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#archivos-de-resultados-generados">Archivos de resultados generados</a></li>
 </ul>
 </li>
 </ul>
@@ -2815,8 +3868,8 @@ By Juan Andrés Ramos
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
