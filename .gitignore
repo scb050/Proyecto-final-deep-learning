@@ -63,3 +63,4 @@ htmlcov/
 # --- Logs ---
 *.log
 logs/
+data_processed.tar.gz

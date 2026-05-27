@@ -1,0 +1,21 @@
+model:
+  name: tft
+  class: src.models.model_tft.TFTForecaster
+architecture:
+  hidden_size: 64
+  attention_heads: 4
+  dropout: 0.1
+  n_static_categorical: 4
+  n_static_real: 3
+  quantiles:
+  - 0.1
+  - 0.5
+  - 0.9
+training:
+  batch_size: 64
+  epochs: 10
+  lr: 0.001
+  optimizer: adam
+  weight_decay: 0.0001
+  early_stopping_patience: 10
+  grad_clip: 1.0

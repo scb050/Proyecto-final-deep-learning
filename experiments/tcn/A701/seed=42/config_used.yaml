@@ -11,7 +11,7 @@ architecture:
   dropout: 0.2
 training:
   batch_size: 64
-  epochs: 10
+  epochs: 25
   lr: 0.001
   optimizer: adam
   weight_decay: 1.0e-05
