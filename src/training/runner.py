@@ -146,6 +146,12 @@ def run_one(
     out_dir = Path(cfg["paths"]["experiments"]) / model_cfg["model"]["name"] / station / f"seed={seed}"
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    # Skip si ya existe un run completo (resume logic)
+    if (out_dir / "metrics.json").exists() and (out_dir / "predictions.npz").exists():
+        log.info("Skip %s/%s seed=%d — ya existe, omitiendo.", model_cfg["model"]["name"], station, seed)
+        from src.utils.io import load_json
+        return load_json(out_dir / "metrics.json")
+
     trainer = Trainer(
         model,
         lr=model_cfg["training"]["lr"],
